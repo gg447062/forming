@@ -4,11 +4,18 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
+    const { name, aboutMe, twitter, discord, address, url } = req.body;
+
     const reqData = {
       records: [
         {
           fields: {
-            'Preferred Name': 'Wabos',
+            'Preferred Name': name,
+            'About Me': aboutMe,
+            Twitter: twitter,
+            Discord: discord,
+            'ETH Address': address,
+            'Video URL': url,
           },
         },
       ],
@@ -21,18 +28,16 @@ router.post('/', async (req, res) => {
       },
     };
 
-    const { data } = await axios.post(
+    await axios.post(
       `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_ID}`,
       reqData,
       axiosConfig
     );
 
-    console.log(data);
-    res.status(200).send('ok');
-  } catch (error) {
-    res.status(401).json({ error });
+    res.status(200).send('thank you!');
+  } catch (err) {
+    res.status(err.status || 500).send(err.message || 'Internal server error');
   }
-  // res.send('all set');
 });
 
 module.exports = router;
