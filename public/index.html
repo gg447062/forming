@@ -2,10 +2,70 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>forming</title>
+    <title>Forming</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/devil.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/jbc5bha.css">
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
+    <header>
+
+      <h1 id="forming">FORMING</h1>
+
+      <h3>Presented By Lexicon Devils</h3>
+    </header>
+    <img id='banner' src="./assets/banner.jpg"/>
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>The pinnacle events for our monthly series with Juicebox, featuring lineups of web3-focused musicians to share pre-recorded video performances of themselves inside the Juicebox parcel on Voxels platform.</p>
+        <h2>Timeline</h2>
+        <p>Submissions are due by July 12. The lineup will be announced shortly after & selected Artists will have their ETH Addresses added to the Juicebox. The live stream for the event will be held on July 16 at the Juicebox Parcel at <a href="https://www.voxels.com/play?coords=N@6649W,240N" target="_blank" >juicebox.lexicondevils.xyz</a>.</p>
+      </section>
+      <section id="submission">
+      <h2>Submit an Application</h2>
+        <form id='form' method="POST" action="/submit">
+          <div class="form-field">
+            <div>
+              <label for="name">Preferred Name</label>
+              <input id="name"></input>
+            </div>
+            <div>
+              <label for="address">ETH Address</label>
+              <input id="address"></input>
+            </div>
+            <div >
+              <label for="twitter">Twitter</label>
+              <input id="twitter"></input>
+            </div>
+          </div>
+          <div class="form-field">
+            <div>
+              <label for='aboutMe'>About Me    <span>0/280</span></label>
+              <textarea id="aboutMe" maxlength="280"></textarea>
+            </div>
+            <div>
+              <label for="url">Video URL</label>
+               <input id="url"></input>
+            </div>
+            <div>
+              <label for="discord">Discord</label>
+             <input id="discord"></input>
+             </div>
+          </div>
+          <input id='submit' type="submit">
+        </form>
+      </section>
+      <img id="lexicon-logo" src="/assets/LD.png"/>
+    </main>
+    <script src="/scripts/axios.min.js"></script>
     <script src="./main.js" charset="utf-8"></script>
   </body>
 </html>

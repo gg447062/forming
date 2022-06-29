@@ -1,0 +1,134 @@
+:root {
+  --DM-Mono: 'DM Mono', monospace;
+}
+
+html {
+  font-family: var(--DM-Mono);
+  overflow-x: hidden;
+}
+
+body {
+  width: 100vw;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+header,
+form,
+#submission,
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  width: 100vw;
+  height: 100vh;
+}
+
+a,
+a:visited {
+  color: black;
+}
+
+h1 {
+  font-size: 12rem;
+  letter-spacing: -0.15em;
+}
+
+h2 {
+  margin: 0, auto;
+}
+
+section {
+  height: 100vh;
+}
+
+#submission {
+  color: white;
+  background-color: black;
+}
+
+form {
+  width: 58em;
+  padding: 2em;
+  box-shadow: 2px 2px black;
+}
+
+.form-field {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 1em;
+  margin-bottom: 2em;
+}
+
+.form-field div {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+form,
+input,
+textarea,
+#submit {
+  border: 1px solid white;
+  border-radius: 0.5em;
+}
+
+input,
+textarea {
+  margin: 1em;
+  padding: 0.5em;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-family: var(--DM-Mono);
+}
+
+textarea {
+  height: 6em;
+}
+
+span {
+  color: gray;
+  font-size: smaller;
+}
+
+#submit {
+  margin-top: 2em;
+  padding: 1em;
+  width: 30%;
+  font-family: var(--DM-Mono);
+  background-color: white;
+  color: black;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+
+#about h2,
+p {
+  width: 80%;
+}
+
+#lexicon-logo,
+#banner {
+  width: 100vw;
+  max-width: 100%;
+}
+
+#lexicon-logo {
+  left: -10px;
+}
