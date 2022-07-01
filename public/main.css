@@ -160,9 +160,13 @@ p {
   width: 80%;
 }
 
-.fake-li {
+.mp-small {
   padding: 0.25em;
   margin: 0;
+}
+
+.mt-small {
+  margin-top: 1.2em;
 }
 
 @media only screen and (max-width: 60em) {

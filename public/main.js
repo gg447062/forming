@@ -29,7 +29,7 @@ const validateData = () => {
   if (inputs.filter((input) => !input.value).length) return false;
 
   if (!isValidURL(url.value)) {
-    error.innerHTML = 'please add a valid url';
+    error.innerHTML = 'must be a valid url';
     url.addEventListener('input', () => {
       error.innerHTML = '';
     });
