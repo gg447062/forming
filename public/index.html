@@ -6,7 +6,7 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="./assets/devil.png"
+      href="./assets/devil.svg"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,55 +15,69 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
-    <header>
-
-      <h1 id="forming">FORMING</h1>
-
-      <h3>Presented By Lexicon Devils</h3>
-    </header>
-    <img id='banner' src="./assets/banner.jpg"/>
     <main>
+    <section id="header">
+      <h1 id="forming">FORMING</h1>
+      <h2>July 16, 2022</h2>
+      <h3>Presented By Lexicon Devils</h3>
+    </section>
+    <section id="devil-banner">
+    </section>
       <section id="about">
         <h2>About</h2>
-        <p>The pinnacle events for our monthly series with Juicebox, featuring lineups of web3-focused musicians to share pre-recorded video performances of themselves inside the Juicebox parcel on Voxels platform.</p>
+        <p>A premier video series featuring web3-focused musicians to share never-before-seen video performances of themselves inside the Juicebox parcel on Voxels, a virtual experience platform. Both DJ & live sets are welcome submissions, as well as the use of visualizers, video edits, & any representation an artist prefers.</p>
         <h2>Timeline</h2>
-        <p>Submissions are due by July 12. The lineup will be announced shortly after & selected Artists will have their ETH Addresses added to the Juicebox. The live stream for the event will be held on July 16 at the Juicebox Parcel at <a href="https://www.voxels.com/play?coords=N@6649W,240N" target="_blank" >juicebox.lexicondevils.xyz</a>.</p>
+        <p class="fake-li">July 12 • Submissions close</p>
+        <p class="fake-li">July 15 • Line up is announced</p>
+        <p class="fake-li">July 16 • Forming goes live @ Juicebox HQ</p>
       </section>
       <section id="submission">
-      <h2>Submit an Application</h2>
+        <div id="thank-you">
+        <h2>thanks for your submission!</h2>
+        <p>You can expect to hear from us by July 14th</p>
+        <div id="close">X</div>
+      </div>
+        <div id="sub-div">
+          <h2>Submit an Application</h2>
+          <p>Lexicon Devils won’t share your information or your video submissions without your explicit permission. Please be sure to submit an unlisted youtube video of content recorded specifically for FORMING.</p>
+       </div>
+
         <form id='form' method="POST" action="/submit">
           <div class="form-field">
             <div>
               <label for="name">Preferred Name</label>
-              <input id="name"></input>
+              <input id="name" class="form-input" ></input>
             </div>
             <div>
               <label for="address">ETH Address</label>
-              <input id="address"></input>
+              <input id="address" class="form-input" ></input>
             </div>
             <div >
               <label for="twitter">Twitter</label>
-              <input id="twitter"></input>
+              <input id="twitter" class="form-input" ></input>
             </div>
           </div>
           <div class="form-field">
             <div>
-              <label for='aboutMe'>About Me    <span>0/280</span></label>
-              <textarea id="aboutMe" maxlength="280"></textarea>
+              <label for='aboutMe'>About Me    <span id="charCount">0/280</span></label>
+              <textarea id="aboutMe"  class="form-input" maxlength="280" ></textarea>
             </div>
             <div>
-              <label for="url">Video URL</label>
-               <input id="url"></input>
+              <label for="url">Video URL </label>
+              <input id="url" class="form-input" ></input>
+              <span id="error"></span>
             </div>
             <div>
               <label for="discord">Discord</label>
-             <input id="discord"></input>
+             <input id="discord" class="form-input" ></input>
              </div>
           </div>
           <input id='submit' type="submit">
         </form>
       </section>
-      <img id="lexicon-logo" src="/assets/LD.png"/>
+      <section id="lexicon-logo">
+        <img src='./assets/LD.png' alt="lexicon logo"/>
+      </section>
     </main>
     <script src="/scripts/axios.min.js"></script>
     <script src="./main.js" charset="utf-8"></script>
