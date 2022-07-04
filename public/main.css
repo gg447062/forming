@@ -2,12 +2,10 @@
   --DM-Mono: 'DM Mono', monospace;
 }
 
-html {
+html,
+body {
   font-family: var(--DM-Mono);
   overflow-x: hidden;
-}
-
-body {
   width: 100vw;
   max-width: 100%;
   padding: 0;
@@ -59,11 +57,19 @@ section {
   display: none;
   position: absolute;
   background-color: black;
-  width: 40%;
-  height: 30%;
+  width: 50%;
+  height: 40%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+#thank-you a {
+  color: white;
+}
+
+#thank-you a:visited {
+  color: white;
 }
 
 #close {
@@ -87,6 +93,7 @@ form {
 
 .form-field {
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -116,6 +123,7 @@ textarea {
   margin: 1em;
   padding: 0.5em;
   width: 100%;
+  max-width: 100%;
   background-color: black;
   color: white;
   font-family: var(--DM-Mono);
@@ -211,5 +219,28 @@ p {
 
   #thank-you {
     width: 85%;
+  }
+}
+
+@media only screen and (max-width: 42em) {
+  h1 {
+    font-size: 6em;
+    padding-right: 0.2em;
+  }
+
+  form {
+    width: 70%;
+  }
+
+  #about {
+    padding: 2em 0;
+  }
+
+  #thank-you {
+    width: 75%;
+  }
+
+  #thank-you h2 {
+    text-align: center;
   }
 }
