@@ -32,6 +32,10 @@ section,
   max-width: 100%;
 }
 
+a:visited {
+  color: blue;
+}
+
 h1 {
   font-size: 12rem;
   letter-spacing: -0.15em;
