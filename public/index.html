@@ -20,7 +20,7 @@
     <section id="header">
       <h1 id="forming">FORMING</h1>
       <h2>August 20, 2022</h2>
-      <h2><a href="https://www.juicebox.lexicondevils.xyz" target="_blank">www.juicebox.lexicondevils.xyz</a></h2>
+      <h3><a href="http://juicebox.lexicondevils.xyz" target="_blank">juicebox.lexicondevils.xyz</a></h3>
       <h3>Presented By Lexicon Devils</h3>
     </section>
     <section id="devil-banner">
@@ -39,6 +39,11 @@
         </p>
       </section>
       <section id="submission">
+        <div id="submission-error">
+          <h2>An error occured:</h2>
+          <p id="error-message"></p>
+          <div id="close-err">X</div>
+        </div>
         <div id="thank-you">
         <h2>thanks for your submission!</h2>
         <p>Please follow <a href="https://twitter.com/devils_lexicon" target="_blank">@devils_lexicon</a> on twitter for announcements.</p>
@@ -49,38 +54,47 @@
         <div id="sub-div">
           <h2>Submit an Application</h2>
           <p>Lexicon Devils won’t share your information or your video submissions without your explicit permission. Please be sure to submit an unlisted youtube video of content recorded specifically for FORMING.</p>
-          <p>Please aim to keep performances around 15-30 minutes long. For Volume 1, 4 performances will be selected.</p>
+          <p>Please aim to keep performances around 15-20 minutes long. For Volume 2, 4 performances will be selected.</p>
        </div>
 
         <form id='form' method="POST" action="/submit">
           <div class="form-field">
             <div>
               <label for="name">Preferred Name</label>
-              <input id="name" class="form-input" ></input>
+              <input id="name" ></input>
             </div>
             <div>
               <label for="address">ETH Address</label>
-              <input id="address" class="form-input" ></input>
+              <input id="address" ></input>
             </div>
             <div >
               <label for="twitter">Twitter</label>
-              <input id="twitter" class="form-input" ></input>
+              <input id="twitter" ></input>
             </div>
           </div>
           <div class="form-field">
             <div>
-              <label for='aboutMe'>About Me    <span id="charCount">0/280</span></label>
-              <textarea id="aboutMe"  class="form-input" maxlength="280" ></textarea>
-            </div>
-            <div>
-              <label for="url">Video URL <span id="error"></span></label>
-              <input id="url" class="form-input" ></input>
+              <label for="email">Email</label>
+              <input id="email"/>
             </div>
             <div>
               <label for="discord">Discord</label>
-             <input id="discord" class="form-input" ></input>
+             <input id="discord" ></input>
              </div>
+             <div>
+               <label for="url">Video URL <span id="error"></span></label>
+               <input id="url" ></input>
+              </div>
+            </div>
+          <div class="form-field">
+            <div></div>
+            <div>
+              <label for='aboutMe'>About Me    <span id="charCount">0/280</span></label>
+              <textarea id="aboutMe"  maxlength="280" ></textarea>
+            </div>
+            <div></div>
           </div>
+
           <button id='submit' form='form' type="submit">Submit</button>
         </form>
       </section>

@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { name, aboutMe, twitter, discord, address, url } = req.body;
+    const { name, aboutMe, twitter, discord, address, url, email } = req.body;
 
     const reqData = {
       records: [
@@ -16,6 +16,8 @@ router.post('/', async (req, res) => {
             Discord: discord,
             'ETH Address': address,
             'Video URL': url,
+            Email: email,
+            Volume: 2,
           },
         },
       ],
@@ -34,7 +36,7 @@ router.post('/', async (req, res) => {
       axiosConfig
     );
 
-    res.sendStatus(200);
+    res.status(200).send('OK');
   } catch (err) {
     res.status(err.status || 500).send(err.message || 'Internal server error');
   }

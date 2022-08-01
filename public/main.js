@@ -6,9 +6,13 @@ const twitter = document.getElementById('twitter');
 const discord = document.getElementById('discord');
 const address = document.getElementById('address');
 const url = document.getElementById('url');
+const email = document.getElementById('email');
 const charCount = document.getElementById('charCount');
 const error = document.getElementById('error');
 const thankYou = document.getElementById('thank-you');
+const submissionError = document.getElementById('submission-error');
+const errorMessage = document.getElementById('error-message');
+const closeError = document.getElementById('close-err');
 const closeButton = document.getElementById('close');
 
 const isValidURL = (string) => {
@@ -41,18 +45,20 @@ const validateData = () => {
 
 const submitData = async () => {
   try {
-    await axios.post('/submit', {
+    const response = await axios.post('/submit', {
       name: name.value,
       aboutMe: aboutMe.value,
       twitter: twitter.value,
       discord: discord.value,
       address: address.value,
       url: url.value,
+      email: email.value,
     });
-
     form.reset();
+    thankYou.style.display = 'flex';
   } catch (error) {
-    console.log(error);
+    errorMessage.innerHTML = error.message;
+    submissionError.style.display = 'flex';
   }
 };
 
@@ -62,7 +68,6 @@ form.addEventListener('submit', async (e) => {
 
   if (validated) {
     await submitData();
-    thankYou.style.display = 'flex';
   }
 });
 
@@ -78,4 +83,8 @@ aboutMe.addEventListener('input', () => {
 
 closeButton.addEventListener('click', () => {
   thankYou.style.display = 'none';
+});
+
+closeError.addEventListener('click', () => {
+  submissionError.style.display = 'none';
 });
