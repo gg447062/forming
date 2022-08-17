@@ -171,9 +171,13 @@ span {
   border: 1px solid white;
 }
 
+#about {
+  padding: 1em 0;
+}
+
 #about h2,
 p {
-  width: 80%;
+  width: 85%;
 }
 
 .mp-small {
@@ -182,7 +186,7 @@ p {
 }
 
 .mt-small {
-  margin-top: 1.2em;
+  margin-top: 0.8em;
 }
 
 @media only screen and (max-width: 60em) {
