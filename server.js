@@ -20,4 +20,6 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
+});
