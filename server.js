@@ -5,16 +5,16 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 
-const submit = require('./routes/submit');
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use('/submit', submit);
+app.use('/submit', require('./routes/submit'));
 app.use(
   '/scripts',
   express.static(path.join(__dirname, 'node_modules/axios/dist'))
 );
+
+app.use('/mint', express.static(path.join(__dirname, '/public/mint.html')));
 
 app.use('/', express.static(path.join(__dirname, '/public')));
 

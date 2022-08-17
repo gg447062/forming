@@ -185,12 +185,6 @@ p {
   margin-top: 1.2em;
 }
 
-#token {
-  width: 70em;
-  height: 35em;
-  max-width: 96%;
-}
-
 @media only screen and (max-width: 60em) {
   h1 {
     font-size: 9em;
@@ -234,11 +228,6 @@ p {
   #thank-you {
     width: 85%;
   }
-
-  #token {
-    width: 45em;
-    height: 40em;
-  }
 }
 
 @media only screen and (max-width: 42em) {
@@ -262,10 +251,5 @@ p {
 
   #thank-you h2 {
     text-align: center;
-  }
-
-  #token {
-    width: 20em;
-    height: 40em;
   }
 }
