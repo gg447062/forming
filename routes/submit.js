@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
             'ETH Address': address,
             'Video URL': url,
             Email: email,
-            Volume: 2,
+            Volume: 4,
           },
         },
       ],
