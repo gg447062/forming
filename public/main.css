@@ -181,6 +181,10 @@ p {
   width: 85%;
 }
 
+h3 {
+  text-align: center;
+}
+
 .mp-small {
   padding: 0.25em;
   margin: 0;
