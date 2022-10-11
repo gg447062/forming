@@ -66,6 +66,7 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 header,
@@ -97,18 +98,23 @@ section {
   gap: 2em;
 }
 
-/* section:nth-child(odd) {
-  background-color: black;
-  color: white;
-} */
-
 section div {
   flex-direction: column;
+}
+
+#intro {
+  min-height: 80vh;
+}
+
+#details div {
+  width: 50%;
+  height: 400px;
 }
 
 /* APPLY & FORM */
 
 #apply {
+  position: relative;
   justify-content: center;
   width: 100vw;
   box-sizing: border-box;
@@ -116,6 +122,10 @@ section div {
 
 #privacy-link {
   margin-top: 1em;
+}
+
+#privacy-link:hover {
+  cursor: pointer;
 }
 
 #sub-div {
@@ -148,6 +158,10 @@ form {
   color: grey;
 }
 
+#error {
+  color: red;
+}
+
 /* UTILITY */
 
 .text-large {
@@ -165,8 +179,26 @@ form {
 
 /*  MODALS */
 
-#submission-error,
-#thank-you,
-#privacy {
+.modal {
   display: none;
+  position: absolute;
+  background-color: white;
+  border: var(--black-border);
+  padding: 3em;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1em;
+  border: 1px solid var(--black-border);
+}
+
+.close-button:hover {
+  cursor: pointer;
 }

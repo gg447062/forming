@@ -12,7 +12,10 @@ const error = document.getElementById('error');
 const thankYou = document.getElementById('thank-you');
 const submissionError = document.getElementById('submission-error');
 const errorMessage = document.getElementById('error-message');
+const privacyPolicy = document.getElementById('privacy');
+const privacyLink = document.getElementById('privacy-link');
 const closeError = document.getElementById('close-err');
+const closePrivacy = document.getElementById('close-privacy');
 const closeButton = document.getElementById('close');
 
 const isValidURL = (string) => {
@@ -81,10 +84,20 @@ aboutMe.addEventListener('input', () => {
   charCount.innerHTML = `${count}/280`;
 });
 
+privacyLink.addEventListener('click', () => {
+  console.log('clicked');
+  console.log(privacyPolicy);
+  privacyPolicy.style.display = 'flex';
+});
+
 closeButton.addEventListener('click', () => {
   thankYou.style.display = 'none';
 });
 
 closeError.addEventListener('click', () => {
   submissionError.style.display = 'none';
+});
+
+closePrivacy.addEventListener('click', () => {
+  privacyPolicy.style.display = 'none';
 });
