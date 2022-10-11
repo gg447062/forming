@@ -71,10 +71,10 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-document.addEventListener('scroll', () => {
-  const y = (window.scrollY / 666 - 0.15).toFixed(2);
-  forming.style.letterSpacing = `${y}em`;
-});
+// document.addEventListener('scroll', () => {
+//   const y = (window.scrollY / 666 - 0.15).toFixed(2);
+//   forming.style.letterSpacing = `${y}em`;
+// });
 
 aboutMe.addEventListener('input', () => {
   const count = aboutMe.value.length;

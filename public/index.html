@@ -17,28 +17,46 @@
   </head>
   <body>
     <main>
-    <section id="header">
-      <h1 id="forming">FORMING</h1>
-      <h2>October 29, 2022</h2>
-      <h3><a href="http://juicebox.lexicondevils.xyz" target="_blank">juicebox.lexicondevils.xyz</a></h3>
-      <h3>Presented By Lexicon Devils</h3>
+      <header>
+        <p class="text-large blue">Live @ JBX Transit Center</p>
+        <div>
+          <p><a class="text-large" href="#synopsis">About</a></p>
+          <p><a class="text-large" href="#apply">Apply</a></p>
+        </div>
+      </header>
+    <section id="intro">
+      <div class="text-large">
+
+        <p>FORMING</p>
+        <p>October 29, 2022</p>
+        <p>Presented By Lexicon Devils</p>
+      </div>
+      <img />
     </section>
-    <section id="devil-banner">
-    </section>
-      <section id="about">
-        <h2 class="mt-small">About</h2>
-        <p class="mp-small">An experimental hyperverse concert series hosted by Lexicon Devil’s for Juicebox.money. Featuring curated lineups of Web3-focused musicians, we will share original recording of their performances at a virtual party in the metaverse. We want to demonstrate the ease and capability of Juicebox as a tool to demonstrate how radical transparency can facilitate creative production and give other artists a sip of what Juicebox can offer for their stack. Both DJ & live sets are welcome submissions, as well as the use of visualizers, video edits, or any visual representation an artist prefers.</p>
-        <h2 class="mt-small">Timeline</h2>
-        <p class="mp-small">October 25 • Submissions close</p>
-        <p class="mp-small">October 28 • Line up is announced</p>
-        <p class="mp-small">October 29 • Forming goes live @ Juicebox HQ</p>
-        <h2 class="mt-small">Funding</h2>
-        <p class="mp-small">To handle crowdfunding and distribution in a transparent, on-chain manner, we are using Juicebox. 2 weeks leading up to the event, all funds received in the FORMING treasury will be distributed to the present Volume's artists at the premier. 2 weeks after premier, we will remove the artist's addresses from the payout list so ongoing funds will be directed to the next Volume. Funding amounts vary by support within every cycle, with the entirety of proceeds going to showcased performers. We encourage anyone interested to check out Juicebox and our FORMING treasury to learn more.</p>
-        <p class="mp-small">
-          <a href="https://juicebox.money/#/v2/p/66" target="_blank">juicebox.money</a>
+      <section id="synopsis">
+        <img />
+        <div>
+          <h2 class="text-large">An experimental hyperverse concert series</h2>
+          <p >An experimental hyperverse concert series hosted by Lexicon Devils for Juicebox.money. Featuring curated lineups of Web3-focused musicians, we will share original recording of their performances at a virtual party in the metaverse. We want to demonstrate the ease and capability of Juicebox as a tool to demonstrate how radical transparency can facilitate creative production and give other artists a sip of what Juicebox can offer for their stack. Both DJ & live sets are welcome submissions, as well as the use of visualizers, video edits, or any visual representation an artist prefers.</p>
+        </div>
+        </section>
+        <section id="details">
+        <div>
+          <h2 class="text-large">Submissions</h2>
+        <p >October 25 • Submissions close</p>
+        <p >October 28 • Line up is announced</p>
+        <p >October 29 • Forming goes live @ Juicebox HQ</p>
+        <p><a class="text-small-caps" href="#apply">Apply</a></p>
+      </div>
+        <div>
+          <h2 class="text-large">Funding</h2>
+        <p >To handle crowdfunding and distribution in a transparent, on-chain manner, we are using Juicebox. 2 weeks leading up to the event, all funds received in the FORMING treasury will be distributed to the present Volume's artists at the premier. 2 weeks after premier, we will remove the artist's addresses from the payout list so ongoing funds will be directed to the next Volume. Funding amounts vary by support within every cycle, with the entirety of proceeds going to showcased performers. We encourage anyone interested to check out Juicebox and our FORMING treasury to learn more.</p>
+        <p >
+          <a class="text-small-caps" href="https://juicebox.money/#/v2/p/66" target="_blank">Forming Juicebox</a>
         </p>
+      </div>
       </section>
-      <section id="submission">
+      <section id="apply">
         <div id="submission-error">
           <h2>An error occured:</h2>
           <p id="error-message"></p>
@@ -51,11 +69,14 @@
         <a href="https://discord.gg/Trjv9nA7c9" target="_blank">Discord</a>
         <div id="close">X</div>
       </div>
+      <div id="privacy"><p>Lexicon Devils won’t share your information or your video submissions without your explicit permission. Please be sure to submit an unlisted youtube video of content recorded specifically for FORMING.</p>
+      <div id="close-privacy">X</div>
+    </div>
         <div id="sub-div">
-          <h2>Submit an Application</h2>
-          <p>Lexicon Devils won’t share your information or your video submissions without your explicit permission. Please be sure to submit an unlisted youtube video of content recorded specifically for FORMING.</p>
-          <p>Please aim to keep performances around 10 minutes long.</p>
-       </div>
+          <h2 class="text-large">Submit Your Video</h2>
+
+          <p class="text-small-caps blue">Privacy Policy</p>
+
 
         <form id='form' method="POST" action="/submit">
           <div class="form-field">
@@ -97,10 +118,24 @@
 
           <button id='submit' form='form' type="submit">Submit</button>
         </form>
+         </div>
       </section>
-      <section id="lexicon-logo">
-        <img src='./assets/LD.png' alt="lexicon logo"/>
+      <section id="links">
+        <div>
+          <p><a>Juicebox Transit Center</a></p>
+        <p><a>Juicebox Learning Center</a></p>
+        <p><a>Lexicon Reality</a></p>
+        <p><a>Germs Experience</a></p>
+        <p><a>Wacko Experience</a></p>
+        <p><a>Xtine Experience</a></p>
+        <p><a>Darby Experience</a></p>
+        </div>
+        <div>
+          <p><a>juicebox.money</a></p>
+        <p><a>web.lexicondevils.xyz</a></p>
+        </div>
       </section>
+
     </main>
     <script src="/scripts/axios.min.js"></script>
     <script src="./main.js" charset="utf-8"></script>
