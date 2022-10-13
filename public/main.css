@@ -31,7 +31,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+button:focus {
   outline: 1px solid black;
 }
 
@@ -72,6 +73,7 @@ a:hover {
 header,
 header div,
 section,
+section div,
 form,
 .form-inner-wrapper {
   display: flex;
@@ -109,6 +111,12 @@ section div {
 #details div {
   width: 50%;
   height: 400px;
+}
+
+#links div {
+  height: 400px;
+  justify-content: flex-start;
+  gap: 2em;
 }
 
 /* APPLY & FORM */
