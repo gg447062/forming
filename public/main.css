@@ -18,6 +18,11 @@ p {
   margin: 0;
 }
 
+img {
+  height: 32em;
+  width: auto;
+}
+
 input,
 textarea {
   box-sizing: border-box;
@@ -75,7 +80,8 @@ header div,
 section,
 section div,
 form,
-.form-inner-wrapper {
+.form-inner-wrapper,
+footer {
   display: flex;
 }
 
@@ -92,20 +98,29 @@ header div {
   justify-content: space-between;
 }
 
-section {
+section,
+footer {
   min-height: 100vh;
   align-items: center;
   justify-content: space-between;
   padding: 0 4em;
-  gap: 2em;
+  gap: 3em;
 }
 
 section div {
   flex-direction: column;
 }
 
+footer div {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2em;
+}
+
 #intro {
-  min-height: 80vh;
+  min-height: 90vh;
 }
 
 #details div {
@@ -113,10 +128,10 @@ section div {
   height: 400px;
 }
 
-#links div {
-  height: 400px;
-  justify-content: flex-start;
-  gap: 2em;
+#dt-links {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
 }
 
 /* APPLY & FORM */
@@ -183,6 +198,10 @@ form {
 
 .blue {
   color: blue;
+}
+
+.mt-small {
+  margin-top: 1em;
 }
 
 /*  MODALS */
