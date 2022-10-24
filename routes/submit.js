@@ -5,6 +5,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { name, aboutMe, twitter, discord, address, url, email } = req.body;
+    const volume = 4;
 
     const reqData = {
       records: [
@@ -17,7 +18,7 @@ router.post('/', async (req, res) => {
             'ETH Address': address,
             'Video URL': url,
             Email: email,
-            Volume: 4,
+            Volume: volume,
           },
         },
       ],
