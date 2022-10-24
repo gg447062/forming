@@ -16,6 +16,8 @@ app.use(
 
 app.use('/mint', express.static(path.join(__dirname, '/public/mint.html')));
 
+app.use('/faq', express.static(path.join(__dirname, '/public/faq.html')));
+
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 const PORT = process.env.PORT || 3000;
