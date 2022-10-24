@@ -10,6 +10,7 @@ const email = document.getElementById('email');
 const charCount = document.getElementById('charCount');
 const error = document.getElementById('error');
 const thankYou = document.getElementById('thank-you');
+const submitting = document.getElementById('submitting');
 const submissionError = document.getElementById('submission-error');
 const errorMessage = document.getElementById('error-message');
 const privacyPolicy = document.getElementById('privacy');
@@ -58,6 +59,7 @@ const submitData = async () => {
       email: email.value,
     });
     form.reset();
+    submitting.style.display = 'none';
     thankYou.style.display = 'flex';
   } catch (error) {
     errorMessage.innerHTML = error.message;
@@ -67,6 +69,7 @@ const submitData = async () => {
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  submitting.style.display = 'flex';
   const validated = validateData();
 
   if (validated) {
@@ -74,19 +77,12 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// document.addEventListener('scroll', () => {
-//   const y = (window.scrollY / 666 - 0.15).toFixed(2);
-//   forming.style.letterSpacing = `${y}em`;
-// });
-
 aboutMe.addEventListener('input', () => {
   const count = aboutMe.value.length;
   charCount.innerHTML = `${count}/280`;
 });
 
 privacyLink.addEventListener('click', () => {
-  console.log('clicked');
-  console.log(privacyPolicy);
   privacyPolicy.style.display = 'flex';
 });
 
