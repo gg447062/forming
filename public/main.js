@@ -18,6 +18,11 @@ const privacyLink = document.getElementById('privacy-link');
 const closeError = document.getElementById('close-err');
 const closePrivacy = document.getElementById('close-privacy');
 const closeButton = document.getElementById('close');
+const poster = document.getElementById('poster');
+const image = document.getElementById('image');
+
+const images = ['1', '2'];
+const posters = ['1', '2'];
 
 const isValidURL = (string) => {
   let url;
@@ -97,3 +102,16 @@ closeError.addEventListener('click', () => {
 closePrivacy.addEventListener('click', () => {
   privacyPolicy.style.display = 'none';
 });
+
+const slideshow = () => {
+  let i = 0;
+  setInterval(() => {
+    i++;
+    const currentImage = images[i % images.length];
+    const currentPoster = posters[i % posters.length];
+    image.src = `assets/img_${currentImage}.png`;
+    poster.src = `assets/poster_${currentPoster}.png`;
+  }, 3000);
+};
+
+// slideshow();
