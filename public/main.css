@@ -1,12 +1,18 @@
+@font-face {
+  font-family: 'VCR_OSD';
+  src: url('../fonts/VCR_OSD_MONO_1.001.ttf');
+}
+
 :root {
   --DM-Mono: 'DM Mono', monospace;
+  --VCR: 'VCR_OSD', monospace;
   --black-border: 1px solid black;
   --white-border: 1px solid white;
 }
 
 html,
 body {
-  font-family: var(--DM-Mono);
+  font-family: var(--VCR);
   overflow-x: hidden;
   width: 100vw;
   max-width: 100%;
@@ -16,6 +22,8 @@ body {
 
 p {
   margin: 0;
+  font-size: 1.2em;
+  line-height: 1.4em;
 }
 
 img {
@@ -154,13 +162,14 @@ footer div:nth-child(2) {
 
 #faq {
   flex-direction: column;
-  padding-bottom: 3em;
+  padding: 3em;
 }
 
 #faq div {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1em;
 }
 
