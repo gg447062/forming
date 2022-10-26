@@ -122,8 +122,8 @@ header {
 }
 
 header,
-#intro p,
-h2 {
+.text-large,
+.faq-title {
   font-family: var(--VCR);
 }
 
@@ -187,6 +187,7 @@ footer div:nth-child(2) {
 #faq {
   flex-direction: column;
   padding: 3em;
+  gap: 1.5em;
 }
 
 #faq div {
@@ -194,7 +195,12 @@ footer div:nth-child(2) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1em;
+  gap: 0.5em;
+}
+
+.faq-title {
+  font-size: 2em;
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 599px) {
@@ -209,7 +215,7 @@ footer div:nth-child(2) {
 
   header {
     padding: 1em;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   header p {
@@ -280,6 +286,21 @@ footer div:nth-child(2) {
 
   #dt-links {
     justify-content: center;
+  }
+
+  #faq {
+    padding: 1em;
+  }
+
+  #faq div p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .faq-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
   }
 }
 
