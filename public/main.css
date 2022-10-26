@@ -116,6 +116,10 @@ header div {
   align-items: center;
 }
 
+.header-sm-menu {
+  color: blue;
+}
+
 section,
 footer {
   min-height: 100vh;
@@ -175,6 +179,85 @@ footer div:nth-child(2) {
   gap: 1em;
 }
 
+@media only screen and (max-width: 599px) {
+  section,
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+
+  header {
+    padding: 1em;
+    justify-content: space-between;
+  }
+
+  header p {
+    word-spacing: -0.2em;
+  }
+
+  header div {
+    display: none;
+  }
+
+  button,
+  input,
+  textarea {
+    font-size: 1.3em;
+  }
+
+  p,
+  a {
+    font-size: 1.1em;
+  }
+
+  button {
+    margin-top: 1em;
+  }
+
+  footer {
+    min-height: 70vh;
+  }
+
+  footer div {
+    height: auto;
+  }
+
+  p,
+  h2 {
+    text-align: center;
+  }
+
+  #intro div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #synopsis {
+    flex-direction: column-reverse;
+  }
+
+  #synopsis div {
+    padding: 0;
+  }
+
+  #details div {
+    width: 100%;
+    height: auto;
+  }
+
+  #details div a {
+    text-align: center;
+  }
+
+  #dt-links {
+    justify-content: center;
+  }
+}
+
 /* APPLY & FORM */
 
 #apply {
@@ -226,6 +309,24 @@ form {
   color: red;
 }
 
+@media only screen and (max-width: 599px) {
+  form {
+    margin-top: 3em;
+  }
+
+  .form-inner-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
+  }
+
+  .form-field {
+    width: 90%;
+  }
+}
+
 /* UTILITY */
 
 .text-large {
@@ -243,6 +344,24 @@ form {
 
 .mt-small {
   margin-top: 1em;
+}
+
+.md-up-hide {
+  display: none;
+}
+
+.sm-hide {
+  display: block;
+}
+
+@media only screen and (max-width: 599px) {
+  .md-up-hide {
+    display: block;
+  }
+
+  .sm-hide {
+    display: none;
+  }
 }
 
 /*  MODALS */
@@ -278,4 +397,13 @@ form {
 
 .close-button:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 599px) {
+  .modal {
+    width: 70vw;
+    height: auto;
+    top: 20%;
+    transform: translate(-50%, 0);
+  }
 }
