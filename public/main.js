@@ -43,8 +43,10 @@ const validateData = () => {
 
   if (!isValidURL(url.value)) {
     error.innerHTML = 'must be a valid url';
+    error.style.paddingBottom = '1em';
     url.addEventListener('input', () => {
       error.innerHTML = '';
+      error.style.paddingBottom = '';
     });
     return false;
   }
@@ -74,10 +76,10 @@ const submitData = async () => {
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  submitting.style.display = 'flex';
   const validated = validateData();
 
   if (validated) {
+    submitting.style.display = 'flex';
     await submitData();
   }
 });
