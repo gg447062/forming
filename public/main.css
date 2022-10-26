@@ -3,8 +3,13 @@
   src: url('../fonts/VCR_OSD_MONO_1.001.ttf');
 }
 
+@font-face {
+  font-family: 'W95FA';
+  src: url('../fonts/W95FA.otf');
+}
+
 :root {
-  --DM-Mono: 'DM Mono', monospace;
+  --W95FA: 'W95FA', monospace;
   --VCR: 'VCR_OSD', monospace;
   --black-border: 1px solid black;
   --white-border: 1px solid white;
@@ -12,7 +17,7 @@
 
 html,
 body {
-  font-family: var(--VCR);
+  font-family: var(--W95FA);
   overflow-x: hidden;
   width: 100vw;
   max-width: 100%;
@@ -37,6 +42,12 @@ input,
 textarea,
 .modal {
   border-radius: 0.5em;
+}
+
+input,
+textarea,
+button {
+  font-size: 1.2em;
 }
 
 input,
@@ -80,7 +91,7 @@ button:hover {
 a {
   color: blue;
   text-decoration: none;
-  font-size: 1.2em;
+  /* font-size: 1.2em; */
 }
 
 a:visited {
@@ -110,8 +121,14 @@ header {
   box-sizing: border-box;
 }
 
+header,
+#intro p,
+h2 {
+  font-family: var(--VCR);
+}
+
 header div {
-  width: 25%;
+  width: 20%;
   justify-content: space-between;
   align-items: center;
 }
@@ -137,6 +154,7 @@ footer div {
   height: 200px;
   display: flex;
   gap: 2em;
+  font-size: 1.2em;
 }
 
 footer div:first-child {
@@ -186,6 +204,7 @@ footer div:nth-child(2) {
     justify-content: center;
     align-items: center;
     padding: 1em;
+    margin: 2em 0;
   }
 
   header {
@@ -217,7 +236,7 @@ footer div:nth-child(2) {
   }
 
   footer {
-    min-height: 70vh;
+    min-height: 80vh;
   }
 
   footer div {
@@ -227,6 +246,12 @@ footer div:nth-child(2) {
   p,
   h2 {
     text-align: center;
+  }
+
+  #image,
+  #poster {
+    width: 90vw;
+    height: auto;
   }
 
   #intro div {
@@ -336,6 +361,7 @@ form {
 
 .text-small-caps {
   text-transform: uppercase;
+  font-size: 1.2em;
 }
 
 .blue {
