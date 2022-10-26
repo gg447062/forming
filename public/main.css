@@ -4,13 +4,21 @@
 }
 
 @font-face {
+  font-family: 'IBM_DOS';
+  src: url('./fonts/Ac437_IBM_DOS_ISO8.ttf');
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'W95FA';
   src: url('../fonts/W95FA.otf');
+  line-height: 127%;
 }
 
 :root {
   --W95FA: 'W95FA', monospace;
   --VCR: 'VCR_OSD', monospace;
+  --IBM: 'IBM_DOS', monospace;
   --black-border: 1px solid black;
   --white-border: 1px solid white;
 }
@@ -84,6 +92,7 @@ button {
 }
 
 button:hover {
+  cursor: pointer;
   color: white;
   background-color: black;
 }
@@ -91,7 +100,6 @@ button:hover {
 a {
   color: blue;
   text-decoration: none;
-  /* font-size: 1.2em; */
 }
 
 a:visited {
@@ -124,7 +132,7 @@ header {
 header,
 .text-large,
 .faq-title {
-  font-family: var(--VCR);
+  font-family: var(--IBM);
 }
 
 header div {
