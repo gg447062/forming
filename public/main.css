@@ -177,6 +177,13 @@ footer div:nth-child(2) {
   max-height: 3em;
 }
 
+#gif-intro {
+  height: 110vh;
+  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/forming_gif_1.gif');
+  background-position: center;
+  background-size: cover;
+}
+
 #synopsis div {
   padding-left: 5em;
 }
@@ -266,6 +273,10 @@ footer div:nth-child(2) {
   #poster {
     width: 90vw;
     height: auto;
+  }
+
+  #gif-intro {
+    display: none;
   }
 
   #intro div {
