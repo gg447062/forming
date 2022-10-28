@@ -178,7 +178,7 @@ footer div:nth-child(2) {
 }
 
 #gif-intro {
-  height: 110vh;
+  min-height: 90vh;
   background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/forming_gif_1.gif');
   background-position: center;
   background-size: cover;
