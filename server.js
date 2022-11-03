@@ -10,7 +10,7 @@ app.use(express.json());
 
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
-    if (!req.secure || req.headers['x-forwarded-proto'] !== 'https') {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
       res.redirect(301, `https://${req.headers.host}${req.originalUrl}`);
     } else {
       next();
