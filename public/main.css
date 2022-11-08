@@ -19,6 +19,7 @@
   --W95FA: 'W95FA', monospace;
   --VCR: 'VCR_OSD', monospace;
   --IBM: 'IBM_DOS', monospace;
+  --DM-MONO: 'DM Mono', monospace;
   --black-border: 1px solid black;
   --white-border: 1px solid white;
 }
@@ -179,7 +180,7 @@ footer div:nth-child(2) {
 
 #gif-intro {
   min-height: 90vh;
-  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/forming_gif_1.gif');
+  background-image: url('assets/formingxallstarz.png');
   background-position: center;
   background-size: cover;
 }
