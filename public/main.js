@@ -88,15 +88,15 @@ form.addEventListener('submit', async (e) => {
 });
 
 document.addEventListener('scroll', (e) => {
-  const y = (window.scrollY / 666 - 0.15).toFixed(2);
+  // const y = (window.scrollY / 666 - 0.15).toFixed(2);
+  // forming.style.letterSpacing = `${y}em`;
+  const y = (window.scrollY / 666).toFixed(2);
   const antiY = (0 - window.scrollY / 666 / 10).toFixed(2);
-  console.log(antiY);
 
   if (antiY > -0.16) {
     headerLogo.style.letterSpacing = `${antiY}em`;
     header.style.opacity = y;
   }
-  // forming.style.letterSpacing = `${y}em`;
 });
 
 aboutMe.addEventListener('input', () => {
