@@ -26,6 +26,7 @@
   --light: rgb(253, 253, 252);
   --black-border: 1px solid black;
   --form-border-color: #ffffff;
+  --assets: 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 }
 
 html,
@@ -310,13 +311,13 @@ footer div:nth-child(2) {
 
 #gif-intro {
   min-height: 125vh;
-  background-image: url('assets/formingxallstarz.png');
+  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz.png');
   background-position: center;
   background-size: cover;
 }
 
 #banner {
-  background-image: url('assets/banner.jpg');
+  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/banner.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -421,7 +422,7 @@ footer div:nth-child(2) {
   }
 
   #gif-intro {
-    background-image: url('assets/formingxallstarz_mobile.png');
+    background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_mobile.png');
     background-size: cover;
     min-height: 100vh;
   }
