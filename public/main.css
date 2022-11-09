@@ -20,8 +20,11 @@
   --VCR: 'VCR_OSD', monospace;
   --IBM: 'IBM_DOS', monospace;
   --DM-MONO: 'DM Mono', monospace;
+  --LD-BLUE: #0037ff;
+  --background-dark: rgb(23, 22, 22);
+  --light: rgb(253, 253, 252);
   --black-border: 1px solid black;
-  --white-border: 1px solid white;
+  --form-border-color: #ffffff;
 }
 
 html,
@@ -38,6 +41,18 @@ p {
   margin: 0;
   font-size: 1.2em;
   line-height: 1.4em;
+}
+
+h1 {
+  font-size: 12rem;
+  letter-spacing: -0.15em;
+  /* margin: 0.5em 0; */
+  margin: 0 0;
+}
+
+h2,
+h3 {
+  margin: 0 auto;
 }
 
 img {
@@ -67,14 +82,14 @@ textarea {
   max-width: 100%;
   padding: 0.5em;
   background-color: inherit;
-  color: black;
-  border: var(--black-border);
+  color: inherit;
+  border: 1px solid var(--form-border-color);
 }
 
 input:focus,
 textarea:focus,
 button:focus {
-  outline: 1px solid black;
+  outline: 1px solid var(--form-border-color);
 }
 
 textarea {
@@ -89,22 +104,22 @@ button {
   align-self: center;
   background-color: inherit;
   color: inherit;
-  border: var(--black-border);
+  border: 1px solid var(--form-border-color);
 }
 
 button:hover {
   cursor: pointer;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: var(--light);
 }
 
 a {
-  color: blue;
+  color: var(--LD-BLUE);
   text-decoration: none;
 }
 
 a:visited {
-  color: blue;
+  color: var(--LD-BLUE);
 }
 
 a:hover {
@@ -124,10 +139,16 @@ footer {
 
 header {
   max-width: 100vw;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding: 1em 2em;
   box-sizing: border-box;
+  position: fixed;
+  /* background-color: var(--light); */
+  opacity: 0;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
 }
 
 header,
@@ -142,8 +163,19 @@ header div {
   align-items: center;
 }
 
+#header-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  font-family: var(--DM-MONO);
+  font-size: 2em;
+  letter-spacing: 1em;
+  /* opacity: 0; */
+}
+
 .header-sm-menu {
-  color: blue;
+  color: var(--LD-BLUE);
 }
 
 section,
@@ -178,11 +210,26 @@ footer div:nth-child(2) {
   max-height: 3em;
 }
 
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  font-family: var(--DM-MONO);
+}
+
+#intro h2 {
+  font-size: 2.5em;
+  letter-spacing: -0.15em;
+  font-weight: 400;
+}
+
 #gif-intro {
-  min-height: 90vh;
+  min-height: 120vh;
   background-image: url('assets/formingxallstarz.png');
   background-position: center;
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 #synopsis div {
@@ -270,7 +317,10 @@ footer div:nth-child(2) {
     text-align: center;
   }
 
-  #image,
+  img.image {
+    width: 200px;
+  }
+
   #poster {
     width: 90vw;
     height: auto;
@@ -331,6 +381,8 @@ footer div:nth-child(2) {
   justify-content: center;
   width: 100vw;
   box-sizing: border-box;
+  background-color: var(--background-dark);
+  color: var(--light);
 }
 
 #privacy-link {
@@ -406,7 +458,7 @@ form {
 }
 
 .blue {
-  color: blue;
+  color: var(--LD-BLUE);
 }
 
 .mt-small {
@@ -430,6 +482,11 @@ form {
   color: black;
 }
 
+.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 @media only screen and (max-width: 599px) {
   .md-up-hide {
     display: block;
@@ -447,7 +504,7 @@ form {
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  background-color: white;
+  background-color: var(--light);
   border: var(--black-border);
   width: 50vw;
   height: 40vh;

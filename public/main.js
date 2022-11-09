@@ -1,5 +1,8 @@
 const form = document.getElementById('form');
 const forming = document.getElementById('forming');
+const intro = document.getElementById('intro');
+const header = document.getElementById('header');
+const headerLogo = document.getElementById('header-logo');
 const name = document.getElementById('name');
 const aboutMe = document.getElementById('aboutMe');
 const twitter = document.getElementById('twitter');
@@ -84,10 +87,17 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// document.addEventListener('scroll', () => {
-//   const y = (window.scrollY / 666 - 0.15).toFixed(2);
-//   forming.style.letterSpacing = `${y}em`;
-// });
+document.addEventListener('scroll', (e) => {
+  const y = (window.scrollY / 666 - 0.15).toFixed(2);
+  const antiY = (0 - window.scrollY / 666 / 10).toFixed(2);
+  console.log(antiY);
+
+  if (antiY > -0.16) {
+    headerLogo.style.letterSpacing = `${antiY}em`;
+    header.style.opacity = y;
+  }
+  // forming.style.letterSpacing = `${y}em`;
+});
 
 aboutMe.addEventListener('input', () => {
   const count = aboutMe.value.length;
