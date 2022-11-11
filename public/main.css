@@ -310,8 +310,8 @@ footer div:nth-child(2) {
 }
 
 #gif-intro {
-  min-height: 125vh;
-  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz.png');
+  min-height: 100vh;
+  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27.png');
   background-position: center;
   background-size: cover;
 }
@@ -422,7 +422,7 @@ footer div:nth-child(2) {
   }
 
   #gif-intro {
-    background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_mobile.png');
+    background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27_mobile.png');
     background-size: cover;
     min-height: 100vh;
   }
