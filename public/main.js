@@ -1,26 +1,16 @@
 const form = document.getElementById('form');
-const forming = document.getElementById('forming');
-const intro = document.getElementById('intro');
-const header = document.getElementById('header');
-const headerLogo = document.getElementById('header-logo');
-const name = document.getElementById('name');
-const aboutMe = document.getElementById('aboutMe');
-const twitter = document.getElementById('twitter');
-const discord = document.getElementById('discord');
-const address = document.getElementById('address');
-const url = document.getElementById('url');
-const email = document.getElementById('email');
-const charCount = document.getElementById('charCount');
+const rsvp = document.getElementById('rsvp');
 const error = document.getElementById('error');
 const thankYou = document.getElementById('thank-you');
 const submitting = document.getElementById('submitting');
 const submissionError = document.getElementById('submission-error');
-const errorMessage = document.getElementById('error-message');
 const privacyPolicy = document.getElementById('privacy');
 const privacyLink = document.getElementById('privacy-link');
 const closeError = document.getElementById('close-err');
 const closePrivacy = document.getElementById('close-privacy');
 const closeButton = document.getElementById('close');
+const rsvpMessage = document.getElementById('rsvp-msg-modal');
+const closeRSVPMessage = document.getElementById('close-rsvp-msg');
 const poster = document.getElementById('poster');
 const image = document.getElementById('image');
 
@@ -58,8 +48,16 @@ const validateData = () => {
 };
 
 const submitData = async () => {
+  const name = document.getElementById('name');
+  const aboutMe = document.getElementById('aboutMe');
+  const twitter = document.getElementById('twitter');
+  const discord = document.getElementById('discord');
+  const address = document.getElementById('address');
+  const url = document.getElementById('url');
+  const email = document.getElementById('email');
+
   try {
-    const response = await axios.post('/submit', {
+    await axios.post('/submit', {
       name: name.value,
       aboutMe: aboutMe.value,
       twitter: twitter.value,
@@ -72,8 +70,24 @@ const submitData = async () => {
     submitting.style.display = 'none';
     thankYou.style.display = 'flex';
   } catch (error) {
+    const errorMessage = document.getElementById('error-message');
     errorMessage.innerHTML = error.message;
     submissionError.style.display = 'flex';
+  }
+};
+
+const sendRSVP = async () => {
+  const rsvpEmail = document.getElementById('rsvp-email');
+  try {
+    await axios.post('/rsvp', {
+      email: rsvpEmail.value,
+    });
+    rsvp.reset();
+    rsvpMessage.style.display = 'flex';
+  } catch (error) {
+    const rsvpMsg = document.getElementById('rsvp-msg');
+    rsvpMsg.innerHTML = error.message;
+    rsvpMessage.style.display = 'flex';
   }
 };
 
@@ -87,7 +101,15 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
+rsvp.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  await sendRSVP();
+});
+
 document.addEventListener('scroll', (e) => {
+  const header = document.getElementById('header');
+  const headerLogo = document.getElementById('header-logo');
+  // const forming = document.getElementById('forming');
   // const y = (window.scrollY / 666 - 0.15).toFixed(2);
   // forming.style.letterSpacing = `${y}em`;
   const y = (window.scrollY / 666).toFixed(2);
@@ -100,6 +122,7 @@ document.addEventListener('scroll', (e) => {
 });
 
 aboutMe.addEventListener('input', () => {
+  const charCount = document.getElementById('charCount');
   const count = aboutMe.value.length;
   charCount.innerHTML = `${count}/280`;
 });
@@ -118,6 +141,10 @@ closeError.addEventListener('click', () => {
 
 closePrivacy.addEventListener('click', () => {
   privacyPolicy.style.display = 'none';
+});
+
+closeRSVPMessage.addEventListener('click', () => {
+  rsvpMessage.style.display = 'none';
 });
 
 const slideshow = () => {

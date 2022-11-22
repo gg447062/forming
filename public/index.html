@@ -22,9 +22,6 @@
     <main>
       <div class="marquee-wrapper">
         <div class="marquee m1">
-          <!-- <p class="text-large blue">
-            Live @ JBX Transit Center * 26 NOV * 3PM PST
-          </p> -->
           <a
             class="text-large"
             href="http://juicebox.lexicondevils.xyz"
@@ -96,7 +93,16 @@
         <h1 id="forming">FORMING</h1>
         <h2>PRESENTED BY LEXICON DEVILS</h2>
       </section> -->
-      <section id="gif-intro"></section>
+      <section id="gif-intro">
+        <div id="rsvp-msg-modal" class="modal">
+          <h2 id="rsvp-msg">Thanks for your RSVP!</h2>
+          <div id="close-rsvp-msg" class="close-button">X</div>
+        </div>
+        <form id="rsvp" method="POST" action="/rsvp">
+          <input id="rsvp-email" placeholder="Email" />
+          <button type="submit">RSVP</button>
+        </form>
+      </section>
       <section id="banner"></section>
       <section id="synopsis">
         <img

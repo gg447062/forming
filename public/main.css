@@ -314,6 +314,8 @@ footer div:nth-child(2) {
   background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27.png');
   background-position: center;
   background-size: cover;
+  align-items: flex-end;
+  position: relative;
 }
 
 #banner {
@@ -425,6 +427,7 @@ footer div:nth-child(2) {
     background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27_mobile.png');
     background-size: cover;
     min-height: 100vh;
+    justify-content: flex-end;
   }
 
   #intro div {
@@ -657,5 +660,55 @@ form {
     height: auto;
     top: 20%;
     transform: translate(-50%, 0);
+  }
+}
+
+#rsvp {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding-bottom: 3em;
+}
+
+#rsvp input {
+  border: var(--black-border);
+  width: 20%;
+  padding: 0.5em;
+}
+
+#rsvp button {
+  background-color: var(--background-dark);
+  border: var(--black-border);
+  color: var(--light);
+  padding: 0.5em 1em;
+  margin: 0;
+}
+
+#rsvp input:focus,
+#rsvp button:focus {
+  outline: 1px solid var(--background-dark);
+}
+
+#rsvp-msg-modal {
+  justify-content: center;
+}
+
+#rsvp-msg {
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 899px) {
+  #rsvp input {
+    width: 40%;
+  }
+
+  #rsvp button,
+  #rsvp input {
+    font-size: 2em;
+    font-weight: 300;
   }
 }

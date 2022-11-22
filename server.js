@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use('/submit', require('./routes/submit'));
+app.use('/rsvp', require('./routes/rsvp'));
 app.use(
   '/scripts',
   express.static(path.join(__dirname, 'node_modules/axios/dist'))
