@@ -4,13 +4,15 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, address, twitter } = req.body;
 
     const reqData = {
       records: [
         {
           fields: {
             Email: email,
+            Address: address,
+            Twitter: twitter,
           },
         },
       ],
@@ -30,7 +32,7 @@ router.post('/', async (req, res) => {
     );
 
     res.status(200).send('OK');
-  } catch (error) {
+  } catch (err) {
     res.status(err.status || 500).send(err.message || 'Internal server error');
   }
 });

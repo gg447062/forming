@@ -76,11 +76,21 @@ const submitData = async () => {
   }
 };
 
+const validateRSVP = () => {
+  const inputs = Array.from(document.getElementsByClassName('rsvp-input'));
+  if (inputs.filter((input) => !input.value).length) return false;
+  return true;
+};
+
 const sendRSVP = async () => {
   const rsvpEmail = document.getElementById('rsvp-email');
+  const rsvpAddress = document.getElementById('rsvp-address');
+  const rsvpTwitter = document.getElementById('rsvp-twitter');
   try {
     await axios.post('/rsvp', {
       email: rsvpEmail.value,
+      address: rsvpAddress.value,
+      twitter: rsvpTwitter.value,
     });
     rsvp.reset();
     rsvpMessage.style.display = 'flex';
@@ -103,7 +113,16 @@ form.addEventListener('submit', async (e) => {
 
 rsvp.addEventListener('submit', async (e) => {
   e.preventDefault();
-  await sendRSVP();
+  const validated = validateRSVP();
+  if (validated) {
+    await sendRSVP();
+  } else {
+    const rsvpMsg = document.getElementById('rsvp-warn');
+    rsvpMsg.style.display = 'block';
+    rsvp.onchange = () => {
+      rsvpMsg.style.display = 'none';
+    };
+  }
 });
 
 document.addEventListener('scroll', (e) => {

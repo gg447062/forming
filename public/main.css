@@ -314,8 +314,10 @@ footer div:nth-child(2) {
   background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27.png');
   background-position: center;
   background-size: cover;
-  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0;
   position: relative;
+  flex-direction: column;
 }
 
 #banner {
@@ -670,12 +672,19 @@ form {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  margin-top: 0;
   padding-bottom: 3em;
+  position: relative;
+}
+
+#rsvp-warn {
+  display: none;
+  color: red;
 }
 
 #rsvp input {
   border: var(--black-border);
-  width: 20%;
+  width: 18%;
   padding: 0.5em;
 }
 
@@ -702,12 +711,14 @@ form {
 }
 
 @media only screen and (max-width: 899px) {
-  #rsvp input {
-    width: 40%;
+  #rsvp {
+    flex-wrap: wrap;
   }
 
   #rsvp button,
-  #rsvp input {
+  #rsvp input,
+  #rsvp-warn {
+    width: 40%;
     font-size: 2em;
     font-weight: 300;
   }

@@ -98,8 +98,15 @@
           <h2 id="rsvp-msg">Thanks for your RSVP!</h2>
           <div id="close-rsvp-msg" class="close-button">X</div>
         </div>
+        <p id="rsvp-warn">all fields are required</p>
         <form id="rsvp" method="POST" action="/rsvp">
-          <input id="rsvp-email" placeholder="Email" />
+          <input id="rsvp-email" class="rsvp-input" placeholder="Email" />
+          <input
+            id="rsvp-address"
+            class="rsvp-input"
+            placeholder="0x Address"
+          />
+          <input id="rsvp-twitter" class="rsvp-input" placeholder="Twitter" />
           <button type="submit">RSVP</button>
         </form>
       </section>
