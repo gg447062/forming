@@ -428,6 +428,7 @@ footer div:nth-child(2) {
   #gif-intro {
     background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27_mobile.png');
     background-size: cover;
+    background-position: center;
     min-height: 100vh;
     justify-content: flex-end;
   }
@@ -713,13 +714,16 @@ form {
 @media only screen and (max-width: 899px) {
   #rsvp {
     flex-wrap: wrap;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    gap: 0.5em;
   }
 
   #rsvp button,
   #rsvp input,
   #rsvp-warn {
     width: 40%;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 300;
   }
 }
