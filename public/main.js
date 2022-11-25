@@ -30,6 +30,7 @@ const isValidURL = (string) => {
 };
 
 const validateData = () => {
+  const url = document.getElementById('url');
   const inputs = Array.from(document.getElementsByClassName('form-input'));
 
   if (inputs.filter((input) => !input.value).length) return false;
@@ -77,8 +78,25 @@ const submitData = async () => {
 };
 
 const validateRSVP = () => {
+  const rsvpAddress = document.getElementById('rsvp-address');
+  const rsvpMsg = document.getElementById('rsvp-warn');
   const inputs = Array.from(document.getElementsByClassName('rsvp-input'));
-  if (inputs.filter((input) => !input.value).length) return false;
+
+  if (inputs.filter((input) => !input.value).length) {
+    rsvpMsg.innerHTML = 'all fields are required';
+    rsvpMsg.style.display = 'block';
+    rsvp.onchange = () => {
+      rsvpMsg.style.display = 'none';
+    };
+    return false;
+  } else if (!rsvpAddress.value.includes('0x')) {
+    rsvpMsg.innerHTML = 'must be 0x address, no ENS';
+    rsvpMsg.style.display = 'block';
+    rsvpAddress.addEventListener('input', () => {
+      rsvpMsg.style.display = 'none';
+    });
+    return false;
+  }
   return true;
 };
 
@@ -116,12 +134,12 @@ rsvp.addEventListener('submit', async (e) => {
   const validated = validateRSVP();
   if (validated) {
     await sendRSVP();
-  } else {
-    const rsvpMsg = document.getElementById('rsvp-warn');
-    rsvpMsg.style.display = 'block';
-    rsvp.onchange = () => {
-      rsvpMsg.style.display = 'none';
-    };
+    // } else {
+    // const rsvpMsg = document.getElementById('rsvp-warn');
+    // rsvpMsg.style.display = 'block';
+    // rsvp.onchange = () => {
+    //   rsvpMsg.style.display = 'none';
+    // };
   }
 });
 
