@@ -441,11 +441,21 @@ footer div:nth-child(2) {
     justify-content: flex-end;
   }
 
+  #intro h1 {
+    font-size: 7rem;
+  }
+
+  #intro h2 {
+    font-size: 1.5em;
+  }
+
   #intro div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 90%;
+    margin-bottom: 2em;
   }
 
   #synopsis {
