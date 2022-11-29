@@ -177,9 +177,9 @@ closePrivacy.addEventListener('click', () => {
   privacyPolicy.style.display = 'none';
 });
 
-closeRSVPMessage.addEventListener('click', () => {
-  rsvpMessage.style.display = 'none';
-});
+// closeRSVPMessage.addEventListener('click', () => {
+//   rsvpMessage.style.display = 'none';
+// });
 
 const slideshow = () => {
   let i = 0;
