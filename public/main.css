@@ -299,17 +299,25 @@ footer div:nth-child(2) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   gap: 1em;
   font-family: var(--DM-MONO);
 }
 
+#intro div {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #intro h2 {
-  font-size: 2.5em;
+  font-size: 2em;
   letter-spacing: -0.15em;
   font-weight: 400;
 }
 
-#gif-intro {
+#img-intro {
   min-height: 100vh;
   background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27.png');
   background-position: center;
@@ -425,7 +433,7 @@ footer div:nth-child(2) {
     height: auto;
   }
 
-  #gif-intro {
+  #img-intro {
     background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27_mobile.png');
     background-size: cover;
     background-position: center;
@@ -630,6 +638,7 @@ form {
   justify-content: space-between;
   position: absolute;
   background-color: var(--light);
+  color: var(--background-dark);
   border: var(--black-border);
   width: 50vw;
   height: 40vh;

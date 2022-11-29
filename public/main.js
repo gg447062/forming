@@ -129,26 +129,20 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-rsvp.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const validated = validateRSVP();
-  if (validated) {
-    await sendRSVP();
-    // } else {
-    // const rsvpMsg = document.getElementById('rsvp-warn');
-    // rsvpMsg.style.display = 'block';
-    // rsvp.onchange = () => {
-    //   rsvpMsg.style.display = 'none';
-    // };
-  }
-});
+// rsvp.addEventListener('submit', async (e) => {
+//   e.preventDefault();
+//   const validated = validateRSVP();
+//   if (validated) {
+//     await sendRSVP();
+//   }
+// });
 
 document.addEventListener('scroll', (e) => {
   const header = document.getElementById('header');
   const headerLogo = document.getElementById('header-logo');
-  // const forming = document.getElementById('forming');
-  // const y = (window.scrollY / 666 - 0.15).toFixed(2);
-  // forming.style.letterSpacing = `${y}em`;
+  const forming = document.getElementById('forming');
+  const y1 = (window.scrollY / 666 - 0.15).toFixed(2);
+  forming.style.letterSpacing = `${y1}em`;
   const y = (window.scrollY / 666).toFixed(2);
   const antiY = (0 - window.scrollY / 666 / 10).toFixed(2);
 
