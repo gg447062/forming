@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { name, aboutMe, twitter, discord, address, url, email } = req.body;
-    const volume = 5;
+    const volume = '6/SC';
 
     const reqData = {
       records: [
