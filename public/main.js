@@ -89,7 +89,10 @@ const validateRSVP = () => {
       rsvpMsg.style.display = 'none';
     };
     return false;
-  } else if (!rsvpAddress.value.includes('0x')) {
+  } else if (
+    !rsvpAddress.value.includes('0x') ||
+    rsvpAddress.value.includes('.eth')
+  ) {
     rsvpMsg.innerHTML = 'must be 0x address, no ENS';
     rsvpMsg.style.display = 'block';
     rsvpAddress.addEventListener('input', () => {
