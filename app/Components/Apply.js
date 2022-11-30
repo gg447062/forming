@@ -134,7 +134,7 @@ function Apply() {
           <h2 className="text-large">Funding</h2>
           <p>
             Artists recieve a transparent split of funds payed into the{' '}
-            <a href="https://juicebox.money/#/v2/p/66" target="_blank">
+            <a href="https://juicebox.money/@forming" target="_blank">
               FORMING
             </a>{' '}
             juicebox for as long as their work being showcased.

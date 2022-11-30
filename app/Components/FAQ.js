@@ -78,7 +78,7 @@ function FAQ() {
           <p>
             When all the artists are selected, they will be added to the payout
             list for the
-            <a href="https://juicebox.money/#/v2/p/66" target="_blank">
+            <a href="https://juicebox.money/@forming" target="_blank">
               FORMING Juicebox
             </a>
             technically, funds can be released anytime by anyone to the payees.

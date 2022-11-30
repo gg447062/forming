@@ -13,7 +13,7 @@ function Footer() {
         </a>
         <a
           className="footer-link"
-          href="https://juicebox.money/#/v2/p/66"
+          href="https://juicebox.money/@forming"
           target="_blank"
         >
           Forming Juicebox

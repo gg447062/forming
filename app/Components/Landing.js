@@ -137,7 +137,7 @@ function Landing() {
             streamed live into our 3D environment, organized with a dedicated
             <a
               className="inline-links"
-              href="https://www.juicebox.money/v2/p/66"
+              href="https://juicebox.money/@forming"
               target="_blank"
             >
               Juicebox Treasury
