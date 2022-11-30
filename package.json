@@ -4,12 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node server.js",
-    "start-server": "nodemon server.js",
+    "start": "node main.js",
+    "start-server": "nodemon main.js",
     "build": "webpack --mode production",
     "build-watch": "webpack --watch --mode development",
     "start-server-2": "nodemon main.js -e html,js,css --ignore public",
-    "dev": "npm run build-watch & npm run start-server"
+    "dev": "npm run build-watch & npm run start-server-2"
   },
   "keywords": [],
   "author": "",
