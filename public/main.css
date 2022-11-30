@@ -53,6 +53,16 @@ h1 {
   margin: 0 0;
 }
 
+.apply-header {
+  font-size: 9rem;
+  letter-spacing: -0.15em;
+  margin: 0 0;
+  font-family: var(--DM-MONO);
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 1em;
+}
+
 h2,
 h3 {
   margin: 0 auto;
@@ -62,6 +72,11 @@ h3 {
 img {
   height: 20em;
   width: auto;
+}
+
+iframe {
+  width: 90vw;
+  height: 90vh;
 }
 
 img,
@@ -152,7 +167,6 @@ header {
   background-color: var(--light);
   opacity: 0;
   z-index: 1000;
-  /* backdrop-filter: blur(2px); */
 }
 
 header,
@@ -169,6 +183,14 @@ header div {
   align-items: center;
 }
 
+header div a {
+  color: black;
+}
+
+header div a:visited {
+  color: black;
+}
+
 header div:nth-child(2) {
   width: 7.5%;
   left: 2.5%;
@@ -179,8 +201,13 @@ header div:nth-child(3) {
   right: 2.5%;
 }
 
+#faq-header-link {
+  width: 7.5%;
+  right: 2.5%;
+}
+
 .header-link {
-  height: 2em;
+  height: 1.5em;
   width: auto;
 }
 
@@ -275,8 +302,28 @@ section div {
   flex-direction: column;
 }
 
+footer {
+  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/banner.jpg');
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--light);
+  padding: 1em;
+  max-height: 80vh;
+  box-sizing: border-box;
+}
+
+.footer-link {
+  color: var(--light);
+}
+
+.footer-link:visited {
+  color: var(--light);
+}
+
 footer div {
-  height: 200px;
   display: flex;
   gap: 2em;
   font-size: 1.2em;
@@ -286,12 +333,15 @@ footer div:first-child {
   flex-direction: column;
 }
 
-footer div:nth-child(2) {
-  flex-direction: row;
+.logo-links-container {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .logo-link {
-  max-height: 3em;
+  max-height: 2em;
 }
 
 #intro {
@@ -341,6 +391,13 @@ footer div:nth-child(2) {
 #details div {
   width: 50%;
   height: 400px;
+}
+
+#details h2 {
+  font-size: 2.5em;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 1em;
 }
 
 #dt-links {

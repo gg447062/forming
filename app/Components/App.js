@@ -1,15 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
+import Landing from './Landing';
+import Apply from './Apply';
 import FAQ from './FAQ';
 import Mint from './Mint';
 
 function App() {
   return (
     <main>
-      <Router history={history}>
+      {/* history={history}  */}
+      <Router basename="/">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/apply" element={<Apply />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/mint" element={<Mint />} />
         </Routes>

@@ -5,6 +5,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { email, address, twitter } = req.body;
+    const date = new Date().toLocaleDateString();
 
     const reqData = {
       records: [
@@ -13,6 +14,7 @@ router.post('/', async (req, res) => {
             Email: email,
             Address: address,
             Twitter: twitter,
+            Date: date,
           },
         },
       ],
