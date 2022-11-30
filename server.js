@@ -8,6 +8,8 @@ dotenv.config();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, '/public')));
+
 if (process.env.NODE_ENV === 'production') {
   app.use((req, res, next) => {
     if (req.headers['x-forwarded-proto'] !== 'https') {
@@ -20,16 +22,10 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/submit', require('./routes/submit'));
 app.use('/rsvp', require('./routes/rsvp'));
-app.use(
-  '/scripts',
-  express.static(path.join(__dirname, 'node_modules/axios/dist'))
-);
 
-app.use('/mint', express.static(path.join(__dirname, '/public/mint.html')));
-
-app.use('/faq', express.static(path.join(__dirname, '/public/faq.html')));
-
-app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 

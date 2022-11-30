@@ -4,18 +4,32 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-server": "nodemon server.js",
+    "build": "webpack --mode production",
+    "build-watch": "webpack --watch --mode development",
+    "start-server-2": "nodemon main.js -e html,js,css --ignore public",
+    "dev": "npm run build-watch & npm run start-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/preset-react": "^7.18.6",
     "axios": "^0.27.2",
+    "babel-loader": "^9.1.0",
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "history": "^5.3.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.18",
+    "webpack-cli": "^5.0.0"
   }
 }

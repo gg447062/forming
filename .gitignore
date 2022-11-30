@@ -1,3 +1,6 @@
 node_modules
 .env
 public/assets
+bundle.js
+bundle.js.license.txt
+.DS_Store
