@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
@@ -39,6 +39,11 @@ function Modals() {
           without your explicit permission. Please be sure to submit an unlisted
           youtube video of content recorded specifically for FORMING.
         </p>
+        <p>
+          These videos should have the opportunity to premier at the event but
+          in the case that your clip isn't selected, it's of course yours to
+          release as you wish!
+        </p>
         <div id="close-privacy" className="close-button">
           X
         </div>
@@ -52,107 +57,128 @@ function Form() {
     <form id="form" method="POST" action="/submit">
       <div className="form-inner-wrapper">
         <div className="form-field">
+          <h2 className="text-large">Performance & Payroll</h2>
+          <p>
+            We use this info to access the edit of your performance, map funds
+            to your wallet address, & contact you with necessary info about the
+            show.
+          </p>
           <div>
             <span id="error"></span>
-            <input id="url" placeholder="Video URL" />
+            <label>Video URL</label>
+            <input id="url" />
           </div>
           <div>
-            <input id="email" placeholder="Email" />
+            <label>Email</label>
+            <input id="email" />
           </div>
           <div>
-            <input id="discord" placeholder="Discord" />
+            <label>Discord</label>
+            <input id="discord" />
           </div>
           <div>
-            <input id="address" placeholder="ETH Address" />
+            <label>ETH Address</label>
+            <input id="address" />
           </div>
         </div>
         <div className="form-field">
+          <h2 className="text-large">Promo Info</h2>
+          <p>
+            We use this information to promote individual performers as well as
+            the event itself so please answer as you’d like to see your info
+            shared out.
+          </p>
           <div>
-            <input id="twitter" placeholder="Twitter" />
+            <label>Twitter</label>
+            <input id="twitter" />
           </div>
           <div>
-            <input id="name" placeholder="Preferred Name" />
+            <label>Preferred Name</label>
+            <input id="name" />
           </div>
-
           <div>
-            <textarea
-              id="aboutMe"
-              maxLength="280"
-              placeholder="About Me"
-            ></textarea>
+            <label>About Me</label>
+            <textarea id="aboutMe" maxLength="280"></textarea>
             <p id="charCount">0/280</p>
           </div>
+          <button id="submit" form="form" type="submit">
+            Submit
+          </button>
         </div>
       </div>
-      <button id="submit" form="form" type="submit">
-        Submit
-      </button>
     </form>
   );
 }
 
 function Apply() {
+  const logoRef = useRef();
+
+  useEffect(() => {
+    function handleScroll() {
+      const headerLogo = logoRef.current;
+      const y = (window.scrollY / 666).toFixed(2);
+      const antiY = (0 - window.scrollY / 666 / 10).toFixed(2);
+
+      if (antiY > -0.16) {
+        headerLogo.style.letterSpacing = `${antiY}em`;
+        headerLogo.style.opacity = y;
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
   return (
-    <div>
-      <Header component={'apply'} />
+    <div style={{ position: 'relative' }}>
+      <Header component={'apply'} myRef={logoRef} />
       <h1 className="apply-header">Artist Submissions</h1>
       <section id="details">
-        <div>
+        <div className="details-panel">
           <h2 className="text-large">Submission Guidelines</h2>
-          <p>
-            Both DJ & live sets are welcome of original, unreleased
-            performances! We encourage the use of visualizers, video edits, or
-            any visual representation an artist prefers. Each month, we will
-            feature our favorites within a specified theme announced on our
-            <a
-              className="inline-links"
-              href="https://twitter.com/forming__"
-              target="_blank"
-            >
-              Twitter
-            </a>
-            . Artists are welcome to resubmit every month! Our selection will be
-            added to the payout list of our
-            <a
-              className="inline-links"
-              href="https://www.juicebox.money/v2/p/66"
-              target="_blank"
-            >
-              Juicebox Treasury
-            </a>
-            . Finalized submissions should aim to be around 10-15 minutes long,
-            due at pre-specified dates a few days before each upcoming event.
-          </p>
-
-          <div id="dt-links" className="mt-small">
-            <Link className="text-small-caps" to="/faq">
-              FAQ
-            </Link>
+          <p>We're looking for:</p>
+          <div className="guideline-container">
+            <p className="guideline">Live Sets</p>
+            <p className="guideline">DJ Sets</p>
+            <p className="guideline">Original</p>
+            <p className="guideline">Unreleased Performances</p>
           </div>
+          <p>Please include:</p>
+          <div className="guideline-container">
+            <p className="guideline">Visualizers</p>
+            <p className="guideline">Video Edits</p>
+            <p className="guideline">Raw Footage</p>
+          </div>
+          <p>Submissions should be formatted:</p>
+          <div className="guideline-container">
+            <p className="guideline">10-15 Minutes</p>
+            <p className="guideline">Unlisted Youtube Link</p>
+          </div>
+          <Link className="text-small-caps" to="/faq">
+            FAQ
+          </Link>
         </div>
-        <div>
+        <div className="details-panel">
           <h2 className="text-large">Funding</h2>
           <p>
             Artists recieve a transparent split of funds payed into the{' '}
             <a href="https://juicebox.money/@forming" target="_blank">
               FORMING
             </a>{' '}
-            juicebox for as long as their work being showcased.
+            juicebox for as long as their work is being showcased.
           </p>
+          <div className="details-panel--img-wrapper">
+            <img src="assets/comp.png" />
+            <img src="assets/eth.png" />
+          </div>
         </div>
       </section>
       <section id="apply">
         <div id="sub-div">
           <Modals />
-          <h2 className="text-large">Submit Your Video</h2>
-          <p>
-            These videos should have the opportunity to premier at the event but
-            in the case that your clip isn't selected, it's of course yours to
-            release as you wish!
-          </p>
+          {/* <h2 className="text-large">Submit Your Video</h2>
           <p id="privacy-link" className="text-small-caps blue">
             Privacy Policy
-          </p>
+          </p> */}
           <Form />
         </div>
       </section>

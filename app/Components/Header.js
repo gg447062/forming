@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function LandingLinks() {
   return (
     <div>
-      <a className="text-large" href="#synopsis">
+      <a className="text-medium" href="#synopsis">
         About
       </a>
-      <Link className="text-large" to="/apply">
+      <Link className="text-medium" to="/apply">
         Apply
       </Link>
     </div>
@@ -17,10 +17,10 @@ function LandingLinks() {
 function ApplyLinks() {
   return (
     <div>
-      <Link className="text-large" to="/">
+      <Link className="text-medium" to="/">
         Home
       </Link>
-      <a className="text-large" href="#apply">
+      <a className="text-medium" href="#apply">
         Apply
       </a>
     </div>
@@ -30,17 +30,19 @@ function ApplyLinks() {
 function FAQLinks() {
   return (
     <div id="faq-header-link">
-      <Link className="text-large" to="/">
+      <Link className="text-medium" to="/">
         Home
       </Link>
     </div>
   );
 }
 
-function Header({ component }) {
+function Header({ component, myRef }) {
   return (
     <header id="header">
-      <p id="header-logo">FORMING</p>
+      <p id="header-logo" ref={myRef}>
+        FORMING
+      </p>
       <div>
         <a href="https://discord.gg/Bmb33DsxV2" target="_blank">
           <img

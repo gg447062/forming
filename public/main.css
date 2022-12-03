@@ -25,7 +25,7 @@
   --background-dark: rgb(23, 22, 22);
   --light: rgb(253, 253, 252);
   --black-border: 1px solid black;
-  --form-border-color: #ffffff;
+  --form-border-color: black;
   --assets: 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 }
 
@@ -48,7 +48,7 @@ p {
 }
 
 h1 {
-  font-size: 12rem;
+  font-size: 6rem;
   letter-spacing: -0.15em;
   margin: 0 0;
 }
@@ -164,8 +164,8 @@ header {
   padding: 0.5em;
   box-sizing: border-box;
   position: fixed;
+  top: 0;
   background-color: var(--light);
-  opacity: 0;
   z-index: 1000;
 }
 
@@ -283,6 +283,7 @@ header div:nth-child(3) {
   font-family: var(--DM-MONO);
   font-size: 2em;
   letter-spacing: 1em;
+  opacity: 0;
 }
 
 .header-sm-menu {
@@ -294,7 +295,6 @@ footer {
   min-height: 100vh;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4em;
   gap: 3em;
 }
 
@@ -344,53 +344,140 @@ footer div:first-child {
   max-height: 2em;
 }
 
-#intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  gap: 1em;
-  font-family: var(--DM-MONO);
-}
-
-#intro div {
-  position: absolute;
-  bottom: 1em;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#intro h2 {
-  font-size: 2em;
-  letter-spacing: -0.15em;
-  font-weight: 400;
-}
-
-#img-intro {
-  min-height: 100vh;
-  background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27.png');
-  background-position: center;
-  background-size: cover;
-  justify-content: flex-end;
-  gap: 0;
-  position: relative;
-  flex-direction: column;
-}
-
-#banner {
+#synopsis,
+#logo {
   background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/banner.jpg');
   background-position: center;
   background-size: cover;
 }
 
-#synopsis div {
-  padding-left: 5em;
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: var(--DM-MONO);
 }
 
-#details div {
+.logo-panel {
   width: 50%;
-  height: 400px;
+  min-height: 100vh;
+  background-color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.logo-img-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+  padding-top: 3em;
+}
+
+.logo-img-wrapper img {
+  height: 8em;
+}
+
+.h2-wrapper {
+  padding-bottom: 1em;
+}
+
+#logo h2 {
+  font-size: 1.5em;
+  letter-spacing: -0.15em;
+  font-weight: 400;
+}
+
+#rsvp-landing {
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+#rsvp-landing h1,
+#rsvp-landing h2 {
+  font-family: var(--DM-MONO);
+  letter-spacing: -0.15em;
+  text-transform: uppercase;
+}
+
+#rsvp-landing h1 {
+  font-size: 3.125em;
+}
+
+#rsvp-landing img {
+  width: 50%;
+  height: 100vh;
+}
+
+.rsvp-landing--right-panel {
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3em;
+}
+
+.heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#synopsis {
+  justify-content: flex-start;
+  padding: 0;
+}
+
+#synopsis div {
+  width: 50%;
+  min-height: 100vh;
+  background-color: var(--light);
+  padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  align-items: center;
+}
+
+#synopsis img {
+  padding-right: 2em;
+}
+
+.flash {
+  height: 12em;
+}
+
+.details-panel {
+  width: 50%;
+  height: 70vh;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.details-panel--img-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4em;
+  gap: 4em;
+}
+
+.details-panel--img-wrapper img:first-child {
+  height: 15em;
+}
+
+.details-panel--img-wrapper img:nth-child(2) {
+  height: 9em;
 }
 
 #details h2 {
@@ -398,6 +485,22 @@ footer div:first-child {
   font-weight: 300;
   margin: 0;
   padding-bottom: 1em;
+}
+
+.guideline-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  width: 100%;
+  margin: 0.5em 0 2em 0;
+}
+
+.guideline {
+  border: var(--black-border);
+  border-radius: 5em;
+  width: fit-content;
+  padding: 0.5em 1em;
 }
 
 #dt-links {
@@ -490,7 +593,7 @@ footer div:first-child {
     height: auto;
   }
 
-  #img-intro {
+  #rsvp-landing {
     background-image: url('https://d11k6q9s6npo8w.cloudfront.net/forming/formingxallstarz_27_mobile.png');
     background-size: cover;
     background-position: center;
@@ -570,18 +673,11 @@ footer div:first-child {
   padding: 4em 3em;
   width: 100vw;
   box-sizing: border-box;
-  background-color: var(--background-dark);
-  color: var(--light);
 }
 
 #privacy-link {
   margin-top: 1em;
-  color: var(--invert-link);
   cursor: pointer;
-}
-
-#privacy-link:visited {
-  color: var(--invert-link);
 }
 
 #sub-div {
@@ -602,6 +698,31 @@ form {
 .form-field {
   width: 50%;
   flex-direction: column;
+  gap: 0.5em;
+}
+
+.form-field h2 {
+  margin: 0;
+  align-self: flex-start;
+}
+
+.form-field p {
+  margin-bottom: 0.5em;
+}
+
+.form-field label {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.form-field button {
+  margin-top: 0.5em;
+  align-self: flex-end;
+}
+
+.form-field button:hover {
+  background-color: var(--background-dark);
+  color: var(--light);
 }
 
 .form-field div:not(:first-child) {
@@ -609,6 +730,7 @@ form {
 }
 
 #charCount {
+  margin-top: 0.5em;
   width: 100%;
   text-align: end;
   color: grey;
@@ -648,6 +770,12 @@ form {
 /* UTILITY */
 
 .text-large {
+  text-transform: uppercase;
+  font-size: 3.125em;
+  padding-bottom: 0.5em;
+}
+
+.text-medium {
   text-transform: uppercase;
   font-size: 2em;
 }
@@ -745,13 +873,24 @@ form {
 #rsvp {
   color: black;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
   margin-top: 0;
   padding-bottom: 3em;
   position: relative;
+}
+
+#rsvp div {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 0.5em;
+}
+
+#rsvp label {
+  font-size: 1.2em;
 }
 
 #rsvp-warn {
@@ -761,16 +900,22 @@ form {
 
 #rsvp input {
   border: var(--black-border);
-  width: 18%;
+  /* width: 90%; */
   padding: 0.5em;
 }
 
 #rsvp button {
-  background-color: var(--background-dark);
+  background-color: var(--light);
   border: var(--black-border);
-  color: var(--light);
+  color: var(--background-dark);
   padding: 0.5em 1em;
-  margin: 0;
+  margin-top: 0;
+  align-self: flex-end;
+}
+
+#rsvp button:hover {
+  background-color: var(--background-dark);
+  color: var(--light);
 }
 
 #rsvp input:focus,
