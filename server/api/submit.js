@@ -5,7 +5,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { name, aboutMe, twitter, discord, address, url, email } = req.body;
-    const volume = '6/SC';
+    const volume = 6;
 
     const reqData = {
       records: [
@@ -32,13 +32,14 @@ router.post('/', async (req, res) => {
     };
 
     await axios.post(
-      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_TABLE_ID}`,
+      `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/${process.env.AIRTABLE_SUBMIT_ID}`,
       reqData,
       axiosConfig
     );
 
     res.status(200).send('OK');
   } catch (err) {
+    console.error(err.message);
     res.status(err.status || 500).send(err.message || 'Internal server error');
   }
 });

@@ -1,60 +1,85 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
+import Modal from './Modal';
 import { Link } from 'react-router-dom';
 
-function Modals() {
-  return (
-    <>
-      <div id="submission-error" className="modal">
-        <h2>An error occured:</h2>
-        <p id="error-message"></p>
-        <div id="close-err" className="close-button">
-          X
-        </div>
-      </div>
-      <div id="submitting" className="modal">
-        <h2>Submitting...</h2>
-      </div>
-      <div id="thank-you" className="modal">
-        <h2>Thanks for your submission!</h2>
-        <p>
-          Please follow
-          <a href="https://twitter.com/lexicon_devils" target="_blank">
-            @lexicon_devils
-          </a>
-          on twitter for announcements.
-        </p>
-        <p>You can expect to hear from us two days before the event.</p>
-        <a href="https://discord.gg/Trjv9nA7c9" target="_blank">
-          Discord
-        </a>
-        <div id="close" className="close-button">
-          X
-        </div>
-      </div>
-      <div id="privacy" className="modal">
-        <p>
-          Lexicon Devils won’t share your information or your video submissions
-          without your explicit permission. Please be sure to submit an unlisted
-          youtube video of content recorded specifically for FORMING.
-        </p>
-        <p>
-          These videos should have the opportunity to premier at the event but
-          in the case that your clip isn't selected, it's of course yours to
-          release as you wish!
-        </p>
-        <div id="close-privacy" className="close-button">
-          X
-        </div>
-      </div>
-    </>
-  );
-}
+function Form({ showSuccess, showSubmitting, showError, setError }) {
+  const [urlError, setUrlError] = useState('');
+  const [charCount, setCharCount] = useState(0);
+  const [name, setName] = useState('');
+  const [aboutMe, setAboutMe] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [discord, setDiscord] = useState('');
+  const [address, setAddress] = useState('');
+  const [url, setUrl] = useState('');
+  const [email, setEmail] = useState('');
+  const formRef = useRef();
 
-function Form() {
+  const isValidURL = (string) => {
+    let url;
+
+    try {
+      url = new URL(string);
+    } catch (_) {
+      return false;
+    }
+
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  };
+
+  const validateData = () => {
+    const inputs = Array.from(document.getElementsByClassName('form-input'));
+
+    if (inputs.filter((input) => !input.value).length) return false;
+
+    if (!isValidURL(url)) {
+      setUrlError('must be a valid url');
+      const urlInput = document.getElementById('url');
+      urlInput.addEventListener('input', () => {
+        setUrlError('');
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const submitData = async () => {
+    const form = formRef.current;
+
+    try {
+      await axios.post('/api/submit', {
+        name,
+        aboutMe,
+        twitter,
+        discord,
+        address,
+        url,
+        email,
+      });
+      form.reset();
+      setAboutMe('');
+      showSubmitting(false);
+      showSuccess(true);
+    } catch (error) {
+      setError(error.message);
+      showError(true);
+    }
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const validated = validateData();
+
+    if (validated) {
+      showSubmitting(true);
+      await submitData();
+    }
+  }
   return (
-    <form id="form" method="POST" action="/submit">
+    <form id="form" onSubmit={handleSubmit} ref={formRef}>
       <div className="form-inner-wrapper">
         <div className="form-field">
           <h2 className="text-large">Performance & Payroll</h2>
@@ -64,21 +89,42 @@ function Form() {
             show.
           </p>
           <div>
-            <span id="error"></span>
-            <label>Video URL</label>
-            <input id="url" />
+            <label>
+              Video URL <span id="error">{`${urlError}`}</span>
+            </label>
+            <input
+              id="url"
+              onChange={(e) => {
+                setUrl(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label>Email</label>
-            <input id="email" />
+            <input
+              id="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label>Discord</label>
-            <input id="discord" />
+            <input
+              id="discord"
+              onChange={(e) => {
+                setDiscord(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label>ETH Address</label>
-            <input id="address" />
+            <input
+              id="address"
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
           </div>
         </div>
         <div className="form-field">
@@ -90,16 +136,34 @@ function Form() {
           </p>
           <div>
             <label>Twitter</label>
-            <input id="twitter" />
+            <input
+              id="twitter"
+              onChange={(e) => {
+                setTwitter(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label>Preferred Name</label>
-            <input id="name" />
+            <input
+              id="name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
           </div>
           <div>
             <label>About Me</label>
-            <textarea id="aboutMe" maxLength="280"></textarea>
-            <p id="charCount">0/280</p>
+            <textarea
+              id="aboutMe"
+              maxLength="280"
+              value={aboutMe}
+              onChange={(e) => {
+                setAboutMe(e.target.value);
+                setCharCount(e.target.value.length);
+              }}
+            ></textarea>
+            <p id="charCount">{`${charCount}/280`}</p>
           </div>
           <button id="submit" form="form" type="submit">
             Submit
@@ -112,6 +176,11 @@ function Form() {
 
 function Apply() {
   const logoRef = useRef();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showSubmitting, setShowSubmitting] = useState(false);
+  const [showSubmissionError, setShowSubmissionError] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
 
   useEffect(() => {
     function handleScroll() {
@@ -174,12 +243,54 @@ function Apply() {
       </section>
       <section id="apply">
         <div id="sub-div">
-          <Modals />
-          {/* <h2 className="text-large">Submit Your Video</h2>
-          <p id="privacy-link" className="text-small-caps blue">
-            Privacy Policy
-          </p> */}
-          <Form />
+          {showPrivacy && (
+            <Modal setShow={setShowPrivacy}>
+              <p>
+                Lexicon Devils won’t share your information or your video
+                submissions without your explicit permission. Please be sure to
+                submit an unlisted youtube video of content recorded
+                specifically for FORMING.
+              </p>
+              <p>
+                These videos should have the opportunity to premier at the event
+                but in the case that your clip isn't selected, it's of course
+                yours to release as you wish!
+              </p>
+            </Modal>
+          )}
+          {showSuccess && (
+            <Modal setShow={setShowSuccess}>
+              <h2>Thanks for your submission!</h2>
+              <p>
+                Please follow
+                <a href="https://twitter.com/lexicon_devils" target="_blank">
+                  @lexicon_devils
+                </a>
+                on twitter for announcements.
+              </p>
+              <p>You can expect to hear from us two days before the event.</p>
+              <a href="https://discord.gg/Trjv9nA7c9" target="_blank">
+                Discord
+              </a>
+            </Modal>
+          )}
+          {showSubmitting && (
+            <Modal id="submitting" setShow={setShowSubmitting}>
+              <h2>SUBMITTING...</h2>
+            </Modal>
+          )}
+          {showSubmissionError && (
+            <Modal setShow={setShowSubmissionError}>
+              <h2>An error occured:</h2>
+              <p id="error-message">{submissionError}</p>
+            </Modal>
+          )}
+          <Form
+            showError={setShowSubmissionError}
+            showSubmitting={setShowSubmitting}
+            showSuccess={setShowSuccess}
+            setError={setSubmissionError}
+          />
         </div>
       </section>
       <Footer />

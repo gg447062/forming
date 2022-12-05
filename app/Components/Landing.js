@@ -67,6 +67,58 @@ function Modal() {
 }
 
 function RSVP() {
+  const validateRSVP = () => {
+    const rsvpAddress = document.getElementById('rsvp-address');
+    const rsvpMsg = document.getElementById('rsvp-warn');
+    const inputs = Array.from(document.getElementsByClassName('rsvp-input'));
+
+    if (inputs.filter((input) => !input.value).length) {
+      rsvpMsg.innerHTML = 'all fields are required';
+      rsvpMsg.style.display = 'block';
+      rsvp.onchange = () => {
+        rsvpMsg.style.display = 'none';
+      };
+      return false;
+    } else if (
+      !rsvpAddress.value.includes('0x') ||
+      rsvpAddress.value.includes('.eth')
+    ) {
+      rsvpMsg.innerHTML = 'must be 0x address, no ENS';
+      rsvpMsg.style.display = 'block';
+      rsvpAddress.addEventListener('input', () => {
+        rsvpMsg.style.display = 'none';
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const sendRSVP = async () => {
+    const rsvpEmail = document.getElementById('rsvp-email');
+    const rsvpAddress = document.getElementById('rsvp-address');
+    const rsvpTwitter = document.getElementById('rsvp-twitter');
+    try {
+      await axios.post('/api/rsvp', {
+        email: rsvpEmail.value,
+        address: rsvpAddress.value,
+        twitter: rsvpTwitter.value,
+      });
+      rsvp.reset();
+      rsvpMessage.style.display = 'flex';
+    } catch (error) {
+      const rsvpMsg = document.getElementById('rsvp-msg');
+      rsvpMsg.innerHTML = error.message;
+      rsvpMessage.style.display = 'flex';
+    }
+  };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const validated = validateRSVP();
+    if (validated) {
+      await sendRSVP();
+    }
+  }
   return (
     <section id="rsvp-landing">
       {/* <Modal /> */}
@@ -76,8 +128,7 @@ function RSVP() {
           <h1>SONGCAMP X FORMING</h1>
           <h2>Presented by Lexicon Devils and Juicebox DAO</h2>
         </div>
-
-        <form id="rsvp" method="POST" action="/rsvp">
+        <form id="rsvp" onSubmit={handleSubmit}>
           <div>
             <label>Email</label>
             <input id="rsvp-email" className="rsvp-input" placeholder="Email" />
