@@ -311,7 +311,7 @@ footer {
   align-items: flex-start;
   color: var(--light);
   padding: 1em;
-  max-height: 80vh;
+  min-height: 92vh;
   box-sizing: border-box;
 }
 
@@ -546,8 +546,13 @@ footer div:first-child {
     word-spacing: -0.2em;
   }
 
-  header div {
+  header div:nth-child(2) {
     display: none;
+  }
+
+  header div:nth-child(3) {
+    width: 90%;
+    right: 5%;
   }
 
   button,
@@ -570,17 +575,29 @@ footer div:first-child {
   }
 
   footer {
-    min-height: 80vh;
-    padding: 4em 0;
+    min-height: 90vh;
+    padding: 1em 0;
+    justify-content: space-between;
   }
 
-  footer div {
-    height: auto;
+  footer div:first-child {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
   }
 
   footer div:nth-child(2) {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .logo-links-container {
+    bottom: 4em;
+  }
+  .logo-link {
+    height: 1.5em;
   }
 
   p,
@@ -601,21 +618,26 @@ footer div:first-child {
     justify-content: flex-end;
   }
 
-  #intro h1 {
-    font-size: 7rem;
+  #logo {
+    padding: 0;
   }
 
-  #intro h2 {
+  #logo h1 {
+    font-size: 5.5rem;
+  }
+
+  #logo h2 {
     font-size: 1.5em;
   }
 
-  #intro div {
+  .logo-panel,
+  #synopsis div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    margin-bottom: 2em;
+    width: 100%;
+    padding: 1em;
   }
 
   #synopsis {
@@ -623,15 +645,19 @@ footer div:first-child {
   }
 
   #synopsis div {
-    padding: 0;
+    padding: 1em;
   }
 
-  #details,
-  #synopsis {
-    padding: 3em 2em;
+  #synopsis h2 {
+    padding-bottom: 0;
+    font-size: 2em;
   }
 
-  #synopsis h2,
+  #details {
+    padding: 1em 2em;
+    gap: 0;
+  }
+
   #details h2 {
     padding-bottom: 1em;
   }
@@ -643,6 +669,18 @@ footer div:first-child {
 
   #details div a {
     text-align: center;
+  }
+
+  .details-panel--img-wrapper img:first-child {
+    height: 10em;
+  }
+
+  .details-panel--img-wrapper img:nth-child(2) {
+    height: 7em;
+  }
+
+  .guideline-container {
+    justify-content: center;
   }
 
   #dt-links {
@@ -742,6 +780,10 @@ form {
 }
 
 @media only screen and (max-width: 899px) {
+  .apply-header {
+    font-size: 4rem;
+  }
+
   form {
     margin-top: 1em;
   }
@@ -756,6 +798,19 @@ form {
 
   .form-field {
     width: 90%;
+  }
+
+  .form-field:first-child {
+    padding-bottom: 2em;
+  }
+
+  .form-field h2 {
+    padding-bottom: 0;
+  }
+
+  .form-field h2,
+  .form-field button {
+    align-self: center;
   }
 
   #apply p {
@@ -890,18 +945,17 @@ form {
   gap: 0.5em;
 }
 
-#rsvp label {
+#rsvp label,
+#rsvp-warn {
   font-size: 1.2em;
 }
 
 #rsvp-warn {
-  display: none;
   color: red;
 }
 
 #rsvp input {
   border: var(--black-border);
-  /* width: 90%; */
   padding: 0.5em;
 }
 

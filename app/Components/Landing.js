@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
+import Modal from './Modal';
+const ASSET_URL = 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 
 function Marquee() {
   return (
@@ -55,38 +58,33 @@ function Marquee() {
   );
 }
 
-function Modal() {
-  return (
-    <div id="rsvp-msg-modal" className="modal">
-      <h2 id="rsvp-msg">Thanks for your RSVP!</h2>
-      <div id="close-rsvp-msg" className="close-button">
-        X
-      </div>
-    </div>
-  );
-}
-
 function RSVP() {
+  const [email, setEmail] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [address, setAddress] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [warning, setWarning] = useState('');
+  const [message, setMessage] = useState('Thanks for your RSVP!');
+  const formRef = useRef();
+
   const validateRSVP = () => {
-    const rsvpAddress = document.getElementById('rsvp-address');
-    const rsvpMsg = document.getElementById('rsvp-warn');
+    const rsvp = rsvpRef.current;
     const inputs = Array.from(document.getElementsByClassName('rsvp-input'));
 
     if (inputs.filter((input) => !input.value).length) {
-      rsvpMsg.innerHTML = 'all fields are required';
-      rsvpMsg.style.display = 'block';
+      setWarning('all fields are required');
       rsvp.onchange = () => {
-        rsvpMsg.style.display = 'none';
+        setWarning('');
       };
       return false;
     } else if (
-      !rsvpAddress.value.includes('0x') ||
-      rsvpAddress.value.includes('.eth')
+      !address.value.includes('0x') ||
+      address.value.includes('.eth')
     ) {
-      rsvpMsg.innerHTML = 'must be 0x address, no ENS';
-      rsvpMsg.style.display = 'block';
+      setWarning('must be 0x address, no ENS');
+      const rsvpAddress = document.getElementById('rsvp-address');
       rsvpAddress.addEventListener('input', () => {
-        rsvpMsg.style.display = 'none';
+        setWarning('');
       });
       return false;
     }
@@ -94,21 +92,18 @@ function RSVP() {
   };
 
   const sendRSVP = async () => {
-    const rsvpEmail = document.getElementById('rsvp-email');
-    const rsvpAddress = document.getElementById('rsvp-address');
-    const rsvpTwitter = document.getElementById('rsvp-twitter');
+    const form = formRef.current;
     try {
       await axios.post('/api/rsvp', {
-        email: rsvpEmail.value,
-        address: rsvpAddress.value,
-        twitter: rsvpTwitter.value,
+        email,
+        address,
+        twitter,
       });
-      rsvp.reset();
-      rsvpMessage.style.display = 'flex';
+      form.reset();
+      setShowSuccess(true);
     } catch (error) {
-      const rsvpMsg = document.getElementById('rsvp-msg');
-      rsvpMsg.innerHTML = error.message;
-      rsvpMessage.style.display = 'flex';
+      setMessage(error.message);
+      setShowSuccess(true);
     }
   };
 
@@ -121,17 +116,27 @@ function RSVP() {
   }
   return (
     <section id="rsvp-landing">
-      {/* <Modal /> */}
+      {showSuccess && (
+        <Modal setShow={setShowSuccess}>
+          <h2 id="rsvp-msg">{message}</h2>
+        </Modal>
+      )}
       <img src="assets/formingxallstarz_mobile.png"></img>
       <div className="rsvp-landing--right-panel">
         <div className="heading-wrapper">
           <h1>SONGCAMP X FORMING</h1>
           <h2>Presented by Lexicon Devils and Juicebox DAO</h2>
         </div>
-        <form id="rsvp" onSubmit={handleSubmit}>
+        <form id="rsvp" onSubmit={handleSubmit} ref={formRef}>
+          <span id="rsvp-warn">{warning}</span>
           <div>
             <label>Email</label>
-            <input id="rsvp-email" className="rsvp-input" placeholder="Email" />
+            <input
+              id="rsvp-email"
+              className="rsvp-input"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div>
             <label>Twitter</label>
@@ -139,16 +144,16 @@ function RSVP() {
               id="rsvp-twitter"
               className="rsvp-input"
               placeholder="Twitter"
+              onChange={(e) => setTwitter(e.target.value)}
             />
           </div>
           <div>
-            <label>
-              0x Address <span id="rsvp-warn"></span>
-            </label>
+            <label>0x Address</label>
             <input
               id="rsvp-address"
               className="rsvp-input"
               placeholder="0x Address"
+              onChange={(e) => setAddress(e.target.value)}
             />
           </div>
           <div>
@@ -165,10 +170,10 @@ function Logo({ myRef }) {
     <section id="logo">
       <div className="logo-panel">
         <div className="logo-img-wrapper">
-          <img className="flash" src="assets/jbx.png" />
+          <img className="flash" src={`${ASSET_URL}/flash/jbx.png`} />
           <img
             className="flash"
-            src="assets/banny.png"
+            src={`${ASSET_URL}/flash/banny.png`}
             style={{ transform: 'scaleX(-1)' }}
           />
         </div>
@@ -179,7 +184,7 @@ function Logo({ myRef }) {
           <h2>PRESENTED BY LEXICON DEVILS</h2>
           <h2>VOL. 6 COMING SOON</h2>
         </div>
-        <img className="flash" src="assets/speakers.png" />
+        <img className="flash" src={`${ASSET_URL}/flash/speakers.png`} />
       </div>
     </section>
   );
@@ -215,7 +220,7 @@ function Landing() {
       {/* <RSVP /> */}
       <section id="synopsis">
         <div>
-          <img className="flash" src="assets/wolf.png"></img>
+          <img className="flash" src={`${ASSET_URL}/flash/wolf.png`}></img>
           <h2 className="text-large">
             An experimental hyperverse concert series
           </h2>
@@ -256,7 +261,7 @@ function Landing() {
             </a>{' '}
             to demonstrate how artists can approach Web3 and Metaverse.
           </p>
-          <img className="flash" src="assets/world.png"></img>
+          <img className="flash" src={`${ASSET_URL}/flash/world.png`}></img>
         </div>
       </section>
 

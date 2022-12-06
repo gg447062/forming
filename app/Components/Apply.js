@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Modal from './Modal';
 import { Link } from 'react-router-dom';
+const ASSET_URL = 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 
 function Form({ showSuccess, showSubmitting, showError, setError }) {
   const [urlError, setUrlError] = useState('');
@@ -236,8 +237,8 @@ function Apply() {
             juicebox for as long as their work is being showcased.
           </p>
           <div className="details-panel--img-wrapper">
-            <img src="assets/comp.png" />
-            <img src="assets/eth.png" />
+            <img src={`${ASSET_URL}/flash/comp.png`} />
+            <img src={`${ASSET_URL}/flash/eth.png`} />
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+const ASSET_URL = 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 
 function LandingLinks() {
   return (
@@ -47,14 +48,14 @@ function Header({ component, myRef }) {
         <a href="https://discord.gg/Bmb33DsxV2" target="_blank">
           <img
             className="header-link"
-            src="assets/discord-black.svg"
+            src={`${ASSET_URL}/discord-black.svg`}
             alt="discord logo"
           />
         </a>
         <a href="https://twitter.com/lexicon_devils" target="_blank">
           <img
             className="header-link"
-            src="assets/twitter-black.svg"
+            src={`${ASSET_URL}/twitter-black.svg`}
             alt="twitter logo"
           />
         </a>

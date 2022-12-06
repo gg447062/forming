@@ -1,4 +1,5 @@
 import React from 'react';
+const ASSET_URL = 'https://d11k6q9s6npo8w.cloudfront.net/forming';
 
 function Footer() {
   return (
@@ -38,7 +39,7 @@ function Footer() {
         <a href="https://soundcloud.com/lexicondevils" target="_blank">
           <img
             className="logo-link"
-            src="assets/soundcloud.svg"
+            src={`${ASSET_URL}/soundcloud.svg`}
             alt="soundcloud logo"
           />
         </a>
@@ -48,21 +49,21 @@ function Footer() {
         >
           <img
             className="logo-link"
-            src="assets/youtube.svg"
+            src={`${ASSET_URL}/youtube.svg`}
             alt="youtube logo"
           />
         </a>
         <a href="https://discord.gg/Bmb33DsxV2" target="_blank">
           <img
             className="logo-link"
-            src="assets/discord.svg"
+            src={`${ASSET_URL}/discord.svg`}
             alt="discord logo"
           />
         </a>
         <a href="https://twitter.com/lexicon_devils" target="_blank">
           <img
             className="logo-link"
-            src="assets/twitter.svg"
+            src={`${ASSET_URL}/twitter.svg`}
             alt="twitter logo"
           />
         </a>
