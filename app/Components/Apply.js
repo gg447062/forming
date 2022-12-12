@@ -177,7 +177,7 @@ function Form({ showSuccess, showSubmitting, showError, setError }) {
 
 function Apply() {
   const logoRef = useRef();
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(true);
   const [showSubmitting, setShowSubmitting] = useState(false);
   const [showSubmissionError, setShowSubmissionError] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
@@ -270,9 +270,13 @@ function Apply() {
                 on twitter for announcements.
               </p>
               <p>You can expect to hear from us two days before the event.</p>
-              <a href="https://discord.gg/Trjv9nA7c9" target="_blank">
-                Discord
-              </a>
+              <p>
+                Join our{' '}
+                <a href="https://discord.gg/Trjv9nA7c9" target="_blank">
+                  Discord
+                </a>{' '}
+                channel.
+              </p>
             </Modal>
           )}
           {showSubmitting && (
