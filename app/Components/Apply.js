@@ -177,7 +177,7 @@ function Form({ showSuccess, showSubmitting, showError, setError }) {
 
 function Apply() {
   const logoRef = useRef();
-  const [showSuccess, setShowSuccess] = useState(true);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [showSubmitting, setShowSubmitting] = useState(false);
   const [showSubmissionError, setShowSubmissionError] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
