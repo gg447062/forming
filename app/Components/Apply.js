@@ -263,10 +263,10 @@ function Apply() {
             <Modal setShow={setShowSuccess}>
               <h2>Thanks for your submission!</h2>
               <p>
-                Please follow
+                Please follow{' '}
                 <a href="https://twitter.com/lexicon_devils" target="_blank">
                   @lexicon_devils
-                </a>
+                </a>{' '}
                 on twitter for announcements.
               </p>
               <p>You can expect to hear from us two days before the event.</p>
