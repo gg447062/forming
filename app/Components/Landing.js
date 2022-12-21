@@ -66,24 +66,20 @@ function RSVP() {
   const [warning, setWarning] = useState('');
   const [message, setMessage] = useState('Thanks for your RSVP!');
   const formRef = useRef();
+  const addressRef = useRef();
 
   const validateRSVP = () => {
-    const rsvp = rsvpRef.current;
     const inputs = Array.from(document.getElementsByClassName('rsvp-input'));
 
     if (inputs.filter((input) => !input.value).length) {
       setWarning('all fields are required');
-      rsvp.onchange = () => {
+      formRef.current.onchange = () => {
         setWarning('');
       };
       return false;
-    } else if (
-      !address.value.includes('0x') ||
-      address.value.includes('.eth')
-    ) {
+    } else if (!address.includes('0x') || address.includes('.eth')) {
       setWarning('must be 0x address, no ENS');
-      const rsvpAddress = document.getElementById('rsvp-address');
-      rsvpAddress.addEventListener('input', () => {
+      addressRef.current.addEventListener('input', () => {
         setWarning('');
       });
       return false;
@@ -154,6 +150,7 @@ function RSVP() {
               className="rsvp-input"
               placeholder="0x Address"
               onChange={(e) => setAddress(e.target.value)}
+              ref={addressRef}
             />
           </div>
           <div>
@@ -219,8 +216,8 @@ function Landing() {
   return (
     <div>
       <Header component={'landing'} myRef={logoRef} />
-      <Logo myRef={formingRef} />
-      {/* <RSVP /> */}
+      {/* <Logo myRef={formingRef} /> */}
+      <RSVP />
       <section id="synopsis">
         <div>
           <img className="flash" src={`${ASSET_URL}/flash/wolf.png`}></img>
