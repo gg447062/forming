@@ -117,7 +117,7 @@ function RSVP() {
           <h2 id="rsvp-msg">{message}</h2>
         </Modal>
       )}
-      <img src="assets/winter_break.png"></img>
+      <img src={`${ASSET_URL}/winter_break.png`}></img>
       <div className="rsvp-landing--right-panel">
         <div className="heading-wrapper">
           <h1>SONGCAMP X FORMING</h1>
@@ -166,7 +166,7 @@ function Logo({ myRef }) {
   return (
     <section id="logo">
       <div className="landing-video-wrapper">
-        <video src="assets/vertical_no_audio.mp4" autoPlay muted loop />
+        <video src={`${ASSET_URL}/vertical_no_audio.mp4`} autoPlay muted loop />
       </div>
       <div className="logo-panel">
         <div className="logo-img-wrapper">
@@ -264,7 +264,12 @@ function Landing() {
           <img className="flash" src={`${ASSET_URL}/flash/world.png`}></img>
         </div>
         <div className="landing-video-wrapper">
-          <video src="assets/vertical_no_audio.mp4" autoPlay muted loop />
+          <video
+            src={`${ASSET_URL}/vertical_no_audio.mp4`}
+            autoPlay
+            muted
+            loop
+          />
         </div>
       </section>
 
