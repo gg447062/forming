@@ -628,14 +628,6 @@ footer div:first-child {
     height: auto;
   }
 
-  #rsvp-landing {
-    background-image: url('assets/winter_break.png');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    justify-content: flex-end;
-  }
-
   #logo {
     padding: 0;
     flex-direction: column-reverse;
@@ -1021,16 +1013,53 @@ form {
 @media only screen and (max-width: 899px) {
   #rsvp {
     flex-wrap: wrap;
-    padding-top: 2em;
     padding-bottom: 1em;
     gap: 0.5em;
   }
 
-  #rsvp button,
   #rsvp input,
   #rsvp-warn {
-    width: 40%;
+    width: 100%;
     font-size: 1.5em;
     font-weight: 300;
   }
+
+  #rsvp div:not(:first-child) {
+    margin-top: 1em;
+  }
+
+  #rsvp button {
+    align-self: center;
+    width: 50%;
+    margin-top: 2em
+  }
+
+
+  #rsvp-warn {
+    text-align: center;
+  }
+
+  #rsvp-landing {
+    background-image: url('assets/winter_break.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    justify-content: flex-end;
+  }
+
+  #rsvp-landing h1 {
+    font-size: 2.75rem;
+  }
+
+  #rsvp-landing img {
+  width: 100vw;
+  height: auto;
+  margin-top: 4em;
+  }
+
+  .rsvp-landing--right-panel {
+    width: 100%;
+    justify-content: center;
+  }
+
 }
