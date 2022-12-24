@@ -5,6 +5,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { name, aboutMe, twitter, discord, address, url, email } = req.body;
+    const date = new Date().toLocaleDateString();
     const volume = 6;
 
     const reqData = {
@@ -19,6 +20,7 @@ router.post('/', async (req, res) => {
             'Video URL': url,
             Email: email,
             Volume: volume,
+            Date: date
           },
         },
       ],
