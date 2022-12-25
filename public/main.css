@@ -910,7 +910,7 @@ form {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   background-color: var(--light);
   color: var(--background-dark);
   border: var(--black-border);
@@ -944,8 +944,6 @@ form {
   .modal {
     width: 70vw;
     height: auto;
-    top: 20%;
-    transform: translate(-50%, 0);
   }
 }
 
@@ -1048,7 +1046,8 @@ form {
   }
 
   #rsvp-landing h1 {
-    font-size: 2.75rem;
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
   }
 
   #rsvp-landing img {
