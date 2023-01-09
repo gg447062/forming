@@ -191,6 +191,7 @@ function Logo({ myRef }) {
 }
 
 function Landing() {
+  const state = 'logo' 
   const logoRef = useRef();
   const formingRef = useRef();
 
@@ -216,8 +217,8 @@ function Landing() {
   return (
     <div>
       <Header component={'landing'} myRef={logoRef} />
-      {/* <Logo myRef={formingRef} /> */}
-      <RSVP />
+      {state === 'logo' && <Logo myRef={formingRef} />}
+      {state === 'rsvp' && <RSVP />}
       <section id="synopsis">
         <div>
           <img className="flash" src={`${ASSET_URL}/flash/wolf.png`}></img>
