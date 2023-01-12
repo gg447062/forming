@@ -529,21 +529,52 @@ footer div:first-child {
 
 #faq {
   flex-direction: column;
-  padding: 3em;
+  padding: 3em 0 5em 0;
   gap: 1.5em;
 }
 
-#faq div {
+#faq h1 {
+  font-size: 9em;
+  font-family: var(--DM-MONO);
+}
+
+#faq h1 span {
+  letter-spacing: -0.3em;
+}
+
+#faq-wrapper {
+  border: var(--black-border);
+  width: 75vw;
+}
+
+.faq-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.5em;
+  justify-content: center;
+}
+
+.faq-card:not(:last-child) {
+  border-bottom: var(--black-border);
 }
 
 .faq-title {
+  padding: 0.25em 0.5em 0 0.5em;
   font-size: 2em;
   text-transform: uppercase;
+}
+
+.faq-body-wrapper-hidden {
+  display: none;
+}
+
+.faq-body-wrapper-active {
+  display: block;
+}
+
+.faq-body {
+  padding: 0.5em 1em 0.75em 0.75em;
 }
 
 @media only screen and (max-width: 899px) {
@@ -1029,9 +1060,8 @@ form {
   #rsvp button {
     align-self: center;
     width: 50%;
-    margin-top: 2em
+    margin-top: 2em;
   }
-
 
   #rsvp-warn {
     text-align: center;
@@ -1051,14 +1081,13 @@ form {
   }
 
   #rsvp-landing img {
-  width: 100vw;
-  height: auto;
-  margin-top: 4em;
+    width: 100vw;
+    height: auto;
+    margin-top: 4em;
   }
 
   .rsvp-landing--right-panel {
     width: 100%;
     justify-content: center;
   }
-
 }
