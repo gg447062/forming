@@ -182,7 +182,7 @@ function Logo({ myRef }) {
         </h1>
         <div className="h2-wrapper">
           <h2>PRESENTED BY LEXICON DEVILS</h2>
-          <h2>VOL. 6 COMING SOON</h2>
+          <h2>VOL. 7 COMING SOON</h2>
         </div>
         <img className="flash" src={`${ASSET_URL}/flash/speakers.png`} />
       </div>
@@ -191,7 +191,7 @@ function Logo({ myRef }) {
 }
 
 function Landing() {
-  const state = 'logo' 
+  const state = 'logo';
   const logoRef = useRef();
   const formingRef = useRef();
 
