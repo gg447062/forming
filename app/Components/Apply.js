@@ -185,7 +185,6 @@ function Apply() {
   const [showSubmissionError, setShowSubmissionError] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [submissionError, setSubmissionError] = useState('');
-  const { setVolume } = useContext(DataContext);
 
   useEffect(() => {
     function handleScroll() {
@@ -200,15 +199,6 @@ function Apply() {
     }
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  });
-
-  useEffect(() => {
-    async function getData() {
-      const { data } = await axios.get('/api/data');
-      const _volume = data.Volume.number;
-      setVolume(_volume);
-    }
-    getData();
   });
 
   return (

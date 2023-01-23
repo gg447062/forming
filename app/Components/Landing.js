@@ -193,20 +193,9 @@ function Logo({ myRef }) {
 }
 
 function Landing() {
-  const { rsvp, setRsvp, setVolume } = useContext(DataContext);
+  const { rsvp } = useContext(DataContext);
   const logoRef = useRef();
   const formingRef = useRef();
-
-  useEffect(() => {
-    async function getData() {
-      const { data } = await axios.get('/api/data');
-      const _rsvp = data.RSVP.checkbox;
-      const _volume = data.Volume.number;
-      setRsvp(_rsvp);
-      setVolume(_volume);
-    }
-    getData();
-  });
 
   useEffect(() => {
     function handleScroll() {
