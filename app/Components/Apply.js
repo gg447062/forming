@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import { DataContext } from '../data-context';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
@@ -16,6 +17,7 @@ function Form({ showSuccess, showSubmitting, showError, setError }) {
   const [address, setAddress] = useState('');
   const [url, setUrl] = useState('');
   const [email, setEmail] = useState('');
+  const { volume } = useContext(DataContext);
   const formRef = useRef();
 
   const isValidURL = (string) => {
@@ -59,6 +61,7 @@ function Form({ showSuccess, showSubmitting, showError, setError }) {
         address,
         url,
         email,
+        volume,
       });
       form.reset();
       setAboutMe('');
@@ -182,6 +185,7 @@ function Apply() {
   const [showSubmissionError, setShowSubmissionError] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
   const [submissionError, setSubmissionError] = useState('');
+  const { setVolume } = useContext(DataContext);
 
   useEffect(() => {
     function handleScroll() {
@@ -196,6 +200,15 @@ function Apply() {
     }
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+  useEffect(() => {
+    async function getData() {
+      const { data } = await axios.get('/api/data');
+      const _volume = data.Volume.number;
+      setVolume(_volume);
+    }
+    getData();
   });
 
   return (

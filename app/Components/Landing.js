@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import { DataContext } from '../data-context';
 import axios from 'axios';
 import Footer from './Footer';
 import Header from './Header';
@@ -163,6 +164,7 @@ function RSVP() {
 }
 
 function Logo({ myRef }) {
+  const { volume } = useContext(DataContext);
   return (
     <section id="logo">
       <div className="landing-video-wrapper">
@@ -182,7 +184,7 @@ function Logo({ myRef }) {
         </h1>
         <div className="h2-wrapper">
           <h2>PRESENTED BY LEXICON DEVILS</h2>
-          <h2>VOL. 7 COMING SOON</h2>
+          <h2>VOL. {volume} COMING SOON</h2>
         </div>
         <img className="flash" src={`${ASSET_URL}/flash/speakers.png`} />
       </div>
@@ -191,9 +193,20 @@ function Logo({ myRef }) {
 }
 
 function Landing() {
-  const state = 'logo';
+  const { rsvp, setRsvp, setVolume } = useContext(DataContext);
   const logoRef = useRef();
   const formingRef = useRef();
+
+  useEffect(() => {
+    async function getData() {
+      const { data } = await axios.get('/api/data');
+      const _rsvp = data.RSVP.checkbox;
+      const _volume = data.Volume.number;
+      setRsvp(_rsvp);
+      setVolume(_volume);
+    }
+    getData();
+  });
 
   useEffect(() => {
     function handleScroll() {
@@ -214,11 +227,12 @@ function Landing() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   });
+
   return (
     <div>
       <Header component={'landing'} myRef={logoRef} />
-      {state === 'logo' && <Logo myRef={formingRef} />}
-      {state === 'rsvp' && <RSVP />}
+      {!rsvp && <Logo myRef={formingRef} />}
+      {rsvp && <RSVP />}
       <section id="synopsis">
         <div>
           <img className="flash" src={`${ASSET_URL}/flash/wolf.png`}></img>
