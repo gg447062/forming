@@ -4,9 +4,9 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { name, aboutMe, twitter, discord, address, url, email } = req.body;
+    const { name, aboutMe, twitter, discord, address, url, email, volume } =
+      req.body;
     const date = new Date().toLocaleDateString();
-    const volume = 7;
 
     const options = {
       method: 'POST',
