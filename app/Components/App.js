@@ -8,21 +8,24 @@ import Mint from './Mint';
 import { DataContext, setStorage } from '../data-context';
 
 function App() {
-  const { rsvp, setRsvp, volume, setVolume } = useContext(DataContext);
+  const { rsvp, setRsvp, volume, setVolume, date, setDate } =
+    useContext(DataContext);
 
   useEffect(() => {
     async function getData() {
       const { data } = await axios.get('/api/data');
       const _rsvp = data.RSVP.checkbox;
       const _volume = data.Volume.number;
-      if (_rsvp !== rsvp || _volume !== volume) {
+      const _date = data.Date.rich_text[0].plain_text;
+      if (_rsvp !== rsvp || _volume !== volume || _date !== date) {
         setRsvp(_rsvp);
         setVolume(_volume);
-        setStorage({ rsvp: _rsvp, volume: _volume });
+        setDate(_date);
+        setStorage({ rsvp: _rsvp, volume: _volume, date: _date });
       }
     }
     getData();
-  });
+  }, []);
 
   return (
     <main>

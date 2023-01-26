@@ -164,7 +164,7 @@ function RSVP() {
 }
 
 function Logo({ myRef }) {
-  const { volume } = useContext(DataContext);
+  const { volume, date } = useContext(DataContext);
   return (
     <section id="logo">
       <div className="landing-video-wrapper">
@@ -184,7 +184,9 @@ function Logo({ myRef }) {
         </h1>
         <div className="h2-wrapper">
           <h2>PRESENTED BY LEXICON DEVILS</h2>
-          <h2>VOL. {volume} COMING SOON</h2>
+          <h2>
+            VOL. {volume} {date}
+          </h2>
         </div>
         <img className="flash" src={`${ASSET_URL}/flash/speakers.png`} />
       </div>
