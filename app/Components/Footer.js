@@ -7,7 +7,7 @@ function Footer() {
       <div>
         <a
           className="footer-link"
-          href="https://www.voxels.com/play?coords=SW@6648W,270N"
+          href="http://juicebox.lexicondevils.xyz"
           target="_blank"
         >
           Juicebox Learning Center
@@ -21,7 +21,7 @@ function Footer() {
         </a>
         <a
           className="footer-link"
-          href="http://web.lexicondevils.xyz"
+          href="https://web.lexicondevils.xyz"
           target="_blank"
         >
           Lexicon Devils
