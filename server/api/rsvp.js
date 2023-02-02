@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   try {
-    const { email, address, twitter } = req.body;
+    const { email, address, twitter, profile } = req.body;
     const date = new Date().toISOString();
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
             rich_text: [{ text: { content: twitter } }],
           },
           Email: { email: email },
+          'Emanate Profile': { url: profile == '' ? null : profile },
         },
       },
     };
