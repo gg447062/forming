@@ -81,11 +81,11 @@ iframe {
 
 video {
   object-fit: cover;
-  height: 110%;
-  width: 110%;
+  height: 112%;
+  width: 112%;
   position: absolute;
   top: 0;
-  left: -5%;
+  left: -6%;
 }
 
 img,
