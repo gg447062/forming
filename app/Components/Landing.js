@@ -115,7 +115,6 @@ function RSVP() {
     }
   }
 
-  console.log(flyer);
   return (
     <section id="rsvp-landing">
       {showSuccess && (
