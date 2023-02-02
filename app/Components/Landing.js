@@ -60,9 +60,11 @@ function Marquee() {
 }
 
 function RSVP() {
+  const { flyer } = useContext(DataContext);
   const [email, setEmail] = useState('');
   const [twitter, setTwitter] = useState('');
   const [address, setAddress] = useState('');
+  const [profile, setProfile] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
   const [warning, setWarning] = useState('');
   const [message, setMessage] = useState('Thanks for your RSVP!');
@@ -95,6 +97,7 @@ function RSVP() {
         email,
         address,
         twitter,
+        profile,
       });
       form.reset();
       setShowSuccess(true);
@@ -111,6 +114,8 @@ function RSVP() {
       await sendRSVP();
     }
   }
+
+  console.log(flyer);
   return (
     <section id="rsvp-landing">
       {showSuccess && (
@@ -118,7 +123,7 @@ function RSVP() {
           <h2 id="rsvp-msg">{message}</h2>
         </Modal>
       )}
-      <img src={`${ASSET_URL}/winter_break.png`}></img>
+      <img src={flyer}></img>
       <div className="rsvp-landing--right-panel">
         <div className="heading-wrapper">
           <h1>SONGCAMP X FORMING</h1>
@@ -151,6 +156,16 @@ function RSVP() {
               className="rsvp-input"
               placeholder="0x Address"
               onChange={(e) => setAddress(e.target.value)}
+              ref={addressRef}
+            />
+          </div>
+          <div>
+            <label>Emanate Profile (optional)</label>
+            <input
+              id="rsvp-profile"
+              className="rsvp-input-optional"
+              placeholder="Emanate Profile"
+              onChange={(e) => setProfile(e.target.value)}
               ref={addressRef}
             />
           </div>

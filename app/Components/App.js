@@ -8,7 +8,7 @@ import Mint from './Mint';
 import { DataContext, setStorage } from '../data-context';
 
 function App() {
-  const { rsvp, setRsvp, volume, setVolume, date, setDate } =
+  const { rsvp, setRsvp, volume, setVolume, date, setDate, flyer, setFlyer } =
     useContext(DataContext);
 
   useEffect(() => {
@@ -17,11 +17,24 @@ function App() {
       const _rsvp = data.RSVP.checkbox;
       const _volume = data.Volume.number;
       const _date = data.Date.rich_text[0].plain_text;
-      if (_rsvp !== rsvp || _volume !== volume || _date !== date) {
+      const _flyer = data.Flyer.files[0].file.url;
+
+      if (
+        _rsvp !== rsvp ||
+        _volume !== volume ||
+        _date !== date ||
+        _flyer !== flyer
+      ) {
         setRsvp(_rsvp);
         setVolume(_volume);
         setDate(_date);
-        setStorage({ rsvp: _rsvp, volume: _volume, date: _date });
+        setFlyer(_flyer);
+        setStorage({
+          rsvp: _rsvp,
+          volume: _volume,
+          date: _date,
+          flyer: _flyer,
+        });
       }
     }
     getData();

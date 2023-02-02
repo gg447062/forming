@@ -22,12 +22,23 @@ export function DataContextProvider({ children }) {
   const _rsvp = data ? data.rsvp : false;
   const _volume = data ? data.volume : null;
   const _date = data ? data.date : null;
+  const _flyer = data ? data.flyer : null;
 
   const [rsvp, setRsvp] = useState(_rsvp);
   const [volume, setVolume] = useState(_volume);
   const [date, setDate] = useState(_date);
+  const [flyer, setFlyer] = useState(_flyer);
 
-  const state = { rsvp, setRsvp, volume, setVolume, date, setDate };
+  const state = {
+    rsvp,
+    setRsvp,
+    volume,
+    setVolume,
+    date,
+    setDate,
+    flyer,
+    setFlyer,
+  };
 
   return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
 }
