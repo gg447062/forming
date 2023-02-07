@@ -125,7 +125,7 @@ function RSVP() {
       <img src={flyer}></img>
       <div className="rsvp-landing--right-panel">
         <div className="heading-wrapper">
-          <h1>SONGCAMP X FORMING</h1>
+          <h1>EMANATE X FORMING</h1>
           <h2>Presented by Lexicon Devils and Juicebox DAO</h2>
         </div>
         <form id="rsvp" onSubmit={handleSubmit} ref={formRef}>
